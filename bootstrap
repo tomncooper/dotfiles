@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Install oh my zsh
+cd $HOME sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+# Copy the solarized theme to to the vim folder
+mkdir -p $HOME/.vim/colors
+wget https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim -P $HOME/.vim/colors
+
+# Clone the Vundle repo ready for the first run
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+
+# Add the zsh-syntax highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
