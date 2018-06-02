@@ -68,10 +68,19 @@ source $ZSH/oh-my-zsh.sh
 #Stop Ctrl+S killing the screen updates in vim
 stty -ixon
 
+# Set up fasd directory cache
+eval "$(fasd --init posix-alias zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-install zsh-wcomp)"
+
 #Set default apps
 export VISUAL=vim
 export EDITOR=vim
 export BROWSER=w3m
+
+# Set QT apps to use wayland
+export QT_QPA_PLATFORM=wayland-egl
+
+# Tell GTK apps to scale
+export GDK_SCALE=2
 
 # Add Tracer module to the python path
 export PYTHONPATH=$PYTHONPATH:$HOME/repos/phd

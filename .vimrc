@@ -19,7 +19,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Add custom plugins here
 Plugin 'vim-airline/vim-airline'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
@@ -138,19 +138,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:ycm_python_binary_path = 'python'
 " Set a shortcut for GoTo commands
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
-
-"Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint', 'mypy']
-let g:syntastic_python_mypy_args = '--ignore-missing-imports --disallow-untyped-defs --incremental'
-let g:syntastic_aggregate_errors = 1
 
 " VimWiki options
 let g:vimwiki_list = [{
