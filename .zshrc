@@ -51,7 +51,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python archlinux vi-mode history-substring-search zsh-syntax-highlighting)
+plugins=(git python archlinux minikube vundle vi-mode history-substring-search zsh-syntax-highlighting)
 
 source $HOME/.zsh_aliases
 

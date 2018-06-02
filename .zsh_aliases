@@ -11,7 +11,7 @@ alias voldown='amixer -D pulse sset Master 5%-'
 # Screen layouts
 alias desk='bash $HOME/.screenlayout/desk.sh'
 alias deskvert='bash $HOME/.screenlayout/desk_vert.sh'
-alias laptop='bash $HOME/.screenlayout/laptop.sh
+alias laptop='bash $HOME/.screenlayout/laptop.sh'
 
 # PhD envs and aliases
 export PHD_HOME=$HOME/repos/phd
