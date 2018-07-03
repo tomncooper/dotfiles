@@ -51,3 +51,6 @@ alias pvim="pipenv run vim"
 
 # Command line search options (requires ddgr and googler to be installed)
 alias ddg="ddgr -r 'uk-en' -n 5"
+
+# Use a better version of cat command
+alias cat="bat"
