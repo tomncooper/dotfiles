@@ -10,7 +10,8 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
+unsetopt correct_all
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -54,9 +55,8 @@ eval "$(fasd --init posix-alias zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-i
 #Set default apps
 export VISUAL=vim
 export EDITOR=vim
-export BROWSER=w3m
 
-# Add Tracer module to the python path
+# Add PHD code modules to the python path
 export PYTHONPATH=$PYTHONPATH:$HOME/repos/phd
 export MYPYPATH=$MYPYPATH:$HOME/repos/phd
 
@@ -70,14 +70,6 @@ export PATH=$PATH:$HOME/tools/storm/bin
 
 # Heron client tools
 export PATH=$PATH:$HOME/tools/heron/bin
-
-# Spark binaries
-export SPARK_HOME=$HOME/tools/spark
-export PATH=$PATH:$SPARK_HOME/bin
-export PYSPARK_PYTHON=python3
-
-# Add pico8 to path
-export PATH=$PATH:$HOME/tools/pico-8
 
 # Add bazel build directory to the path
 export PATH=$PATH:$HOME/tools/bazel/bin

@@ -34,12 +34,13 @@ alias off='bash $PHD_HOME/tracerdevops/azure/traceroff.sh'
 alias phdbackup='tar -zcvf phdbackup.tar.gz $PHD_HOME'
 alias wtasks='task pro:phd'
 
-# Tracer Influx DB command line
-alias tracerdb="influx -host tracer.ukwest.cloudapp.azure.com -port 8086 -username 'tom' -password 'bigdata'"
-
 # Tracer Neo4J DB command line
 alias tracergraph="export TERM=xterm-color && cypher-shell -a tracer.ukwest.cloudapp.azure.com -u neo4j -p neo4j"
 alias neodev="docker run --publish=7474:7474 --publish=7687:7687 --env=NEO4J_AUTH=none neo4j"
+
+# Gremlin Dev server
+export GREMLIN_HOME=$HOME/tools/gremlin
+alias gremstart='./$GREMLIN_HOME/bin/gremlin-server.sh $GREMLIN_HOME/conf/gremlin-server-modern-py.yaml'
 
 # Pipenv commands
 alias per="pipenv run"
