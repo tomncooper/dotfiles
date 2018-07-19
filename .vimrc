@@ -56,6 +56,9 @@ set backspace=2
 " Auto-close the preview window after a completion suggestion has been selected
 autocmd CompleteDone * pclose
 
+" Stop vim switching directory to match the first file opened
+set noautochdir
+
 " -- Search
 set ignorecase            " Ignore case when searching
 set smartcase             " If there is an uppercase in your search term

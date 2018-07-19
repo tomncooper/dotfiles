@@ -56,6 +56,11 @@ eval "$(fasd --init posix-alias zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-i
 export VISUAL=vim
 export EDITOR=vim
 
+# Fix keybindings
+bindkey -v
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
+
 # Add PHD code modules to the python path
 export PYTHONPATH=$PYTHONPATH:$HOME/repos/phd
 export MYPYPATH=$MYPYPATH:$HOME/repos/phd
@@ -64,6 +69,10 @@ export MYPYPATH=$MYPYPATH:$HOME/repos/phd
 export GOPATH=$HOME/repos/go
 export PATH=$PATH:$GOPATH/bin
 alias gb=$GOPATH/bin/gb
+
+# Ruby setup
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export GEM_HOME=$HOME/.gem
 
 # Storm binaries
 export PATH=$PATH:$HOME/tools/storm/bin
@@ -79,3 +88,11 @@ export CXX=/usr/bin/g++
 
 # Set the timewarrior data folder location
 export TIMEWARRIORDB=$HOME/GDrive/Tasks/TimeWarrior
+
+# Add the gremlin programs to the path
+export PATH=$PATH:$HOME/tools/gremlin-server/bin
+export PATH=$PATH:$HOME/tools/gremlin-console/bin
+
+# Fix for electron crashes
+export XDG_CONFIG_DIRS=""
+export GTK2_RC_FILES=""

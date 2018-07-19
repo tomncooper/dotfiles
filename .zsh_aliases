@@ -13,6 +13,9 @@ alias desk='bash $HOME/.screenlayout/desk.sh'
 alias deskvert='bash $HOME/.screenlayout/desk_vert.sh'
 alias laptop='bash $HOME/.screenlayout/laptop.sh'
 
+# Keyboard layouts]
+alias kbgb='setxkbmap -layout gb'
+
 # PhD envs and aliases
 export PHD_HOME=$HOME/repos/phd
 export PAPERS=$PHD_HOME/papers
@@ -39,8 +42,9 @@ alias tracergraph="export TERM=xterm-color && cypher-shell -a tracer.ukwest.clou
 alias neodev="docker run --publish=7474:7474 --publish=7687:7687 --env=NEO4J_AUTH=none neo4j"
 
 # Gremlin Dev server
-export GREMLIN_HOME=$HOME/tools/gremlin
-alias gremstart='./$GREMLIN_HOME/bin/gremlin-server.sh $GREMLIN_HOME/conf/gremlin-server-modern-py.yaml'
+alias gremstart='gremlin-server.sh start $HOME/tools/gremlin-server/conf/gremlin-server-modern-py.yaml'
+alias gremstop='gremlin-server.sh stop'
+alias regrem='gremstop && sleep 5 && gremstart'
 
 # Pipenv commands
 alias per="pipenv run"
