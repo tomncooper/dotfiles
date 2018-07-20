@@ -5,8 +5,9 @@
 alias reboot='sudo reboot'
 
 # Audio 
-alias volup='amixer -D pulse sset Master 5%+'
-alias voldown='amixer -D pulse sset Master 5%-'
+alias vup='pamixer -i 5'
+alias vd='pamixer -d 5'
+alias mute='pamixer -m'
 
 # Screen layouts
 alias desk='bash $HOME/.screenlayout/desk.sh'
