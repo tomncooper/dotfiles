@@ -37,6 +37,7 @@ alias tdbup='azure vm start TNCStorm TNC-Tracer'
 alias off='bash $PHD_HOME/tracerdevops/azure/traceroff.sh'
 alias phdbackup='tar -zcvf phdbackup.tar.gz $PHD_HOME'
 alias wtasks='task pro:phd'
+alias caldev='cd $PHD_HOME/caladrius'
 
 # Tracer Neo4J DB command line
 alias tracergraph="export TERM=xterm-color && cypher-shell -a tracer.ukwest.cloudapp.azure.com -u neo4j -p neo4j"
