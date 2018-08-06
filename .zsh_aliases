@@ -5,8 +5,9 @@
 alias reboot='sudo reboot'
 
 # Audio 
-alias volup='amixer -D pulse sset Master 5%+'
-alias voldown='amixer -D pulse sset Master 5%-'
+alias vup='pamixer -i 5'
+alias vd='pamixer -d 5'
+alias mute='pamixer -m'
 
 # Screen layouts
 alias desk='bash $HOME/.screenlayout/desk.sh'
@@ -26,16 +27,14 @@ alias neotracer='cd $PHD_HOME/neoTracer'
 alias tracerdev='tracer && pipenv shell --fancy'
 alias rtm='cd $PHD_HOME/tracer_rtm'
 alias ui='cd $PHD_HOME/tracer_ui'
-alias tracerup='bash $PHD_HOME/tracerdevops/azure/startAll.sh'
-alias stormup='bash $PHD_HOME/tracerdevops/azure/startCluster.sh'
-alias genup='bash $PHD_HOME/tracerdevops/azure/startGenerator.sh'
+alias tracerup='bash $PHD_HOME/tracerdevops/azure/startCluster.sh'
 alias tracerdown='bash $PHD_HOME/tracerdevops/azure/stopCluster.sh'
-alias tracerlist='azure vm list TNCStorm'
-alias tracerip='python $PHD_HOME/tracerdevops/azure/tracerip.py'
-alias tdbup='azure vm start TNCStorm TNC-Tracer'
+alias tracerlist='az vm list --resource-group TNCStorm'
+alias tdbup='azure vm start --resource-group TNCStorm --name TNC-Tracer'
 alias off='bash $PHD_HOME/tracerdevops/azure/traceroff.sh'
 alias phdbackup='tar -zcvf phdbackup.tar.gz $PHD_HOME'
 alias wtasks='task pro:phd'
+alias caladrius='cd $PHD_HOME/caladrius'
 
 # Tracer Neo4J DB command line
 alias tracergraph="export TERM=xterm-color && cypher-shell -a tracer.ukwest.cloudapp.azure.com -u neo4j -p neo4j"
