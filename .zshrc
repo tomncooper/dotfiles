@@ -9,7 +9,7 @@ ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
 
-# Uncomment the following line to enable command auto-correction.
+# Stop zsh recommending stupid things!
 ENABLE_CORRECTION="false"
 unsetopt correct_all
 
@@ -56,7 +56,7 @@ eval "$(fasd --init posix-alias zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-i
 export VISUAL=vim
 export EDITOR=vim
 
-# Fix keybindings
+# Fix keybindings - stops Home and End keys doing weird things
 bindkey -v
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
