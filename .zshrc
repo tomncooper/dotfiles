@@ -49,6 +49,9 @@ source $ZSH/oh-my-zsh.sh
 #Stop Ctrl+S killing the screen updates in vim
 stty -ixon
 
+# Make the delete key do sensible things
+bindkey -a '^[[3~' delete-char
+
 # Set up fasd directory cache
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-install zsh-wcomp)"
 
