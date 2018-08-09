@@ -10,7 +10,7 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="agnoster"
 ZSH_THEME="pygmalion"
 
-# Uncomment the following line to enable command auto-correction.
+# Stop zsh recommending stupid things!
 ENABLE_CORRECTION="false"
 unsetopt correct_all
 
@@ -50,6 +50,9 @@ source $ZSH/oh-my-zsh.sh
 #Stop Ctrl+S killing the screen updates in vim
 stty -ixon
 
+# Make the delete key do sensible things
+bindkey -a '^[[3~' delete-char
+
 # Set up fasd directory cache
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-install zsh-wcomp)"
 
@@ -57,7 +60,7 @@ eval "$(fasd --init posix-alias zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-i
 export VISUAL=vim
 export EDITOR=vim
 
-# Fix keybindings
+# Fix keybindings - stops Home and End keys doing weird things
 bindkey -v
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
