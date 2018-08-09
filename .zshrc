@@ -7,7 +7,8 @@ ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+ZSH_THEME="pygmalion"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="false"
@@ -92,7 +93,3 @@ export TIMEWARRIORDB=$HOME/GDrive/Tasks/TimeWarrior
 # Add the gremlin programs to the path
 export PATH=$PATH:$HOME/tools/gremlin-server/bin
 export PATH=$PATH:$HOME/tools/gremlin-console/bin
-
-# Fix for electron crashes
-export XDG_CONFIG_DIRS=""
-export GTK2_RC_FILES=""
