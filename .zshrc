@@ -36,7 +36,12 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git python archlinux httpie minikube vundle vi-mode history-substring-search zsh-syntax-highlighting)
 
+# Read all the aliases
 source $HOME/.zsh_aliases
+
+# Read the local config file -- This is not stored in yadm so use for system
+# specific config
+source $HOME/.zsh_local
 
 alias zshconfig="vim ~/.zshrc"
 

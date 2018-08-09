@@ -50,7 +50,7 @@ alias per="pipenv run"
 alias perp="pipenv run python"
 alias pein="pipenv install"
 alias peupg="pipenv update"
-alias pipython="pipenv run ipython"
+alias pipython="pipenv run ipython --profile=tom"
 alias pvim="pipenv run vim"
 
 # Command line search options (requires ddgr and googler to be installed)
