@@ -44,8 +44,8 @@ set scrolloff=3           " Display at least 3 lines around you cursor
                           " (for scrolling)
 
 set guioptions=T          " Enable the toolbar
-set colorcolumn=79        " Set the end on line indicator strip
-set tw=79                 " Set the text width so that hard wrapping occurs
+set colorcolumn=90        " Set the end on line indicator strip
+set tw=90                 " Set the text width so that hard wrapping occurs
 
 "Set the tab key to provide a 4 space indent - Spaces not tabs FTW!
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -153,6 +153,10 @@ let g:vimwiki_use_calendar = 1
 
 " Vim-PanDoc options
 let g:pandoc#modules#disabled = ["folding"]
+
+" ALE options
+let g:ale_python_mypy_options = "-s"
+
 
 " NERD Tree settings
 " Auto Open 
