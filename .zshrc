@@ -89,8 +89,7 @@ export PATH=$PATH:$HOME/tools/storm/bin
 # Heron client tools
 export PATH=$PATH:$HOME/tools/heron/bin
 
-# Add bazel build directory to the path
-export PATH=$PATH:$HOME/tools/bazel/bin
+# Add bazel build variables
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export CC=/usr/bin/gcc
 export CXX=/usr/bin/g++

@@ -20,6 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Add custom plugins here
 Plugin 'vim-airline/vim-airline'
 Plugin 'w0rp/ale'
+Plugin 'ambv/black'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
@@ -156,7 +157,6 @@ let g:pandoc#modules#disabled = ["folding"]
 
 " ALE options
 let g:ale_python_mypy_options = "-s"
-
 
 " NERD Tree settings
 " Auto Open 
