@@ -9,11 +9,6 @@ alias vup='pamixer -i 5'
 alias vd='pamixer -d 5'
 alias mute='pamixer -m'
 
-# Screen layouts
-alias desk='bash $HOME/.screenlayout/desk.sh'
-alias deskvert='bash $HOME/.screenlayout/desk_vert.sh'
-alias laptop='bash $HOME/.screenlayout/laptop.sh'
-
 # Keyboard layouts]
 alias kbgb='setxkbmap -layout gb'
 
@@ -29,8 +24,8 @@ alias rtm='cd $PHD_HOME/tracer_rtm'
 alias ui='cd $PHD_HOME/tracer_ui'
 alias tracerup='bash $PHD_HOME/tracerdevops/azure/startCluster.sh'
 alias tracerdown='bash $PHD_HOME/tracerdevops/azure/stopCluster.sh'
-alias tracerlist='az vm list --resource-group TNCStorm'
-alias tdbup='azure vm start --resource-group TNCStorm --name TNC-Tracer'
+alias tracerlist='az vm list -d --output=table -g TNCStorm'
+alias tdbup='az vm start --resource-group TNCStorm --name TNC-Tracer --no-wait'
 alias off='bash $PHD_HOME/tracerdevops/azure/traceroff.sh'
 alias phdbackup='tar -zcvf phdbackup.tar.gz $PHD_HOME'
 alias wtasks='task pro:phd'

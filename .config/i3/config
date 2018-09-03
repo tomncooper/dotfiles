@@ -163,4 +163,5 @@ bar {
 
 # Start up programs
 exec_always --no-startup-id rescuetime
-exec_always --no-startup-id insync start
+exec_always --no-startup-id dunst
+exec --no-startup-id insync start
