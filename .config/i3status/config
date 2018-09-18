@@ -17,9 +17,9 @@ order += "battery 0"
 order += "disk /"
 order += "cpu_usage"
 order += "load"
-order += "tztime today"
 order += "tztime cal"
 order += "tztime uk"
+order += "tztime date"
 
 wireless _first_ {
         format_up = "W: %essid - %quality %bitrate %frequency - %ip"
@@ -36,8 +36,9 @@ battery 0 {
         format = "%status %percentage %remaining"
 }
 
-tztime today {
-        format = "%Y-%m-%d"
+tztime date {
+        format = "%A %d %B %Y"
+        timezone= "Europe/London"
 }
 
 tztime uk {
@@ -61,5 +62,5 @@ load {
 }
 
 disk "/" {
-        format = "SSD: %avail / %total"
+        format = "Drive: %total/%used/%avail"
 }
