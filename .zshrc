@@ -108,7 +108,3 @@ export TIMEWARRIORDB=$HOME/GDrive/Tasks/TimeWarrior
 # Add the gremlin programs to the path
 export PATH=$PATH:$HOME/tools/gremlin-server/bin
 export PATH=$PATH:$HOME/tools/gremlin-console/bin
-
-# Add azure cli binaries and completion
-export PATH=$PATH:/home/tom/tools/azure-cli/bin
-source '/home/tom/om/tools/azure-cli/az.completion'
