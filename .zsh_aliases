@@ -15,8 +15,10 @@ alias kbgb='setxkbmap -layout gb'
 # PhD envs and aliases
 export PHD_HOME=$HOME/repos/phd
 export PAPERS=$PHD_HOME/papers
+export REPORTS=$PHD_HOME/reports
 alias phd='cd $PHD_HOME'
 alias papers='cd $PAPERS'
+alias reports='cd $REPORTS'
 alias tracer='cd $PHD_HOME/tracer'
 alias neotracer='cd $PHD_HOME/neoTracer'
 alias tracerdev='tracer && pipenv shell --fancy'

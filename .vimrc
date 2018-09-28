@@ -42,12 +42,12 @@ set number                " Display line numbers
 set ruler                 " Display cursor position
 set wrap                  " Wrap lines when they are too long
 
-set scrolloff=3           " Display at least 3 lines around you cursor
+set scrolloff=6           " Display at least 3 lines around you cursor
                           " (for scrolling)
 
 set guioptions=T          " Enable the toolbar
+set textwidth=90          " Set the text width so that hard wrapping occurs
 set colorcolumn=90        " Set the end on line indicator strip
-set tw=90                 " Set the text width so that hard wrapping occurs
 
 "Set the tab key to provide a 4 space indent - Spaces not tabs FTW!
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -171,6 +171,8 @@ let g:vimwiki_use_calendar = 1
 
 " Vim-PanDoc options
 let g:pandoc#modules#disabled = ["folding"]
+let g:pandoc#formatting#mode = 'hA'
+let g:pandoc#formatting#textwidth = 90
 
 " ALE options
 let g:ale_python_mypy_options = "-s"

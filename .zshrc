@@ -1,5 +1,5 @@
 ### OH MY ZSH Boilerplate ###
-#
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -54,7 +54,7 @@ bindkey -v
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 # Make the delete key do sensible things
-bindkey -a '^[[3~' delete-char
+bindkey "^[[3~" delete-char
 
 # Read all the aliases
 source $HOME/.zsh_aliases
@@ -108,7 +108,3 @@ export TIMEWARRIORDB=$HOME/GDrive/Tasks/TimeWarrior
 # Add the gremlin programs to the path
 export PATH=$PATH:$HOME/tools/gremlin-server/bin
 export PATH=$PATH:$HOME/tools/gremlin-console/bin
-
-# Add azure cli binaries and completion
-export PATH=$PATH:/home/tom/tools/azure-cli/bin
-source '/home/tom/om/tools/azure-cli/az.completion'
