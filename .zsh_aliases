@@ -11,6 +11,7 @@ alias mute='pamixer -m'
 
 # Keyboard layouts]
 alias kbgb='setxkbmap -layout gb'
+alias capbk='xmodmap -e "clear lock" && xmodmap -e "keysym Caps_Lock = BackSpace"'
 
 # PhD envs and aliases
 export PHD_HOME=$HOME/repos/phd
