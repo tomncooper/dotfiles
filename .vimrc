@@ -175,7 +175,7 @@ let g:pandoc#formatting#mode = 'hA'
 let g:pandoc#formatting#textwidth = 90
 
 " ALE options
-let g:ale_python_mypy_options = "-s"
+let g:ale_python_mypy_options = "--ignore-missing-imports"
 
 " NERD Tree settings
 " Auto Open 
