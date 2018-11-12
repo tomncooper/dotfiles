@@ -104,7 +104,7 @@ imap <left> <nop>
 imap <right> <nop>
 
 "Remap the escape key to be 2 presses of the i key so it is easier to reach
-imap ii <Esc>
+"imap ii <Esc>
 
 "Remap the leader key to be the space bar
 let mapleader = "\<Space>"

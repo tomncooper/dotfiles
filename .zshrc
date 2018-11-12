@@ -108,3 +108,6 @@ export TIMEWARRIORDB=$HOME/GDrive/Tasks/TimeWarrior
 # Add the gremlin programs to the path
 export PATH=$PATH:$HOME/tools/gremlin-server/bin
 export PATH=$PATH:$HOME/tools/gremlin-console/bin
+
+# Add makelatex python script to the path
+export PATH=$PATH:$HOME/tools/makelatex
