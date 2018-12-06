@@ -55,3 +55,7 @@ alias ddg="ddgr -r 'uk-en' -n 5"
 
 # Use a better version of cat command
 alias cat="bat"
+
+# Use a better version of ls and tree
+alias ll="exa --long --header"
+alias tree="exa --tree"
