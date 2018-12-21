@@ -31,6 +31,7 @@ Plugin 'mattn/calendar-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax' 
+Plugin 'hura/vim-asymptote'
 
 "End the vundle config
 call vundle#end() 
@@ -176,6 +177,9 @@ let g:pandoc#formatting#textwidth = 90
 
 " ALE options
 let g:ale_python_mypy_options = "--ignore-missing-imports"
+
+" Black options
+autocmd BufWritePre *.py execute ':Black'
 
 " NERD Tree settings
 " Auto Open 
