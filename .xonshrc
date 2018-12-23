@@ -1,9 +1,65 @@
+# Xonsh Settings
+$XONSH_COLOR_STYLE='paraiso-dark'
+$XONSH_SHOW_TRACEBACK = True
+$VI_MODE = True
+
+# Load plugins
+xontrib load jedi 
+
+## Add in VI Mode indicator ##
+
+
+# This will make things really slow as it updates the prompt state everytime, which if you
+# are doing git repo states aswell could be really slow!
+#$UPDATE_PROMPT_ON_KEYPRESS = True
+
+#from prompt_toolkit.key_binding import vi_state
+
+#def vi_mode():
+    #state = __xonsh__.shell.shell.prompter.app.vi_state
+    #mode = state.input_mode
+    #if mode == vi_state.InputMode.INSERT:
+        #return 'INSERT'
+    #elif mode == vi_state.InputMode.INSERT_MULTIPLE:
+        #return 'INSERT_MULTIPLE'
+    #elif mode == vi_state.InputMode.NAVIGATION:
+        #return 'NORMAL'
+    #elif mode == vi_state.InputMode.REPLACE:
+        #return 'REPLACE'
+    #else:
+        #return 'NORMAL'        
+
+#$PROMPT_FIELDS['vi_mode'] = vi_mode
+
+#$PROMPT = ("{env_name:{} }{BOLD_GREEN}{user}@{hostname}{BOLD_BLUE} "
+           #"{cwd}{branch_color}{curr_branch: {}}{NO_COLOR} "
+           #"{vi_mode:[{}] }"
+           #"{BOLD_BLUE}{prompt_end}{NO_COLOR} ")
+
+###### Environment Variables ######
+
 # Add PHD code modules to the python path
 if "PYTHONPATH" in ${...}:
     ${"PYTHONPATH"}.append("$HOME/repos/phd")
 else:
     ${"PYTHONPATH"} = ["$HOME/repos/phd"]
 
-$XONSH_COLOR_STYLE='paraiso-dark'
-$XONSH_SHOW_TRACEBACK = True
+###### Aliases ######
 
+# Load all the zsh_aliaes
+source-bash --overwrite-aliases $HOME/.zsh_aliases
+
+# Directories
+aliases['ll'] = ["exa", "-l"]
+aliases['la'] = ["exa", "-la"]
+aliases['tree'] = ["exa", "--tree"]
+
+# Git 
+aliases["gst"] = ["git", "status"]
+aliases["gc"] = ["git", "commit"]
+aliases["ga"] = ["git", "add"]
+
+# Arch
+aliases["pacin"] = ["sudo", "pancman", "-S"]
+aliases["yain"] = ["sudo", "yaourt", "-S"]
+aliases["yaupg"] = ["sudo", "yaourt", "-Syua"]
