@@ -59,4 +59,5 @@ alias cat="bat"
 
 # Use a better version of ls and tree
 alias ll="exa --long --header"
+alias la="exa --long --header --all"
 alias tree="exa --tree"
