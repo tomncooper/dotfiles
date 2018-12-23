@@ -11,6 +11,9 @@ filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=$HOME/.vim/bundle/Vundle.vim
 
+" Set ALE to provide completion - This has to be set before ALE loads
+let g:ale_completion_enabled = 1
+
 "Start vundle config
 call vundle#begin()
 
