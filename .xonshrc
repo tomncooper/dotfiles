@@ -1,0 +1,9 @@
+# Add PHD code modules to the python path
+if "PYTHONPATH" in ${...}:
+    ${"PYTHONPATH"}.append("$HOME/repos/phd")
+else:
+    ${"PYTHONPATH"} = ["$HOME/repos/phd"]
+
+$XONSH_COLOR_STYLE='paraiso-dark'
+$XONSH_SHOW_TRACEBACK = True
+
