@@ -17,9 +17,11 @@ alias capbk='xmodmap -e "clear lock" && xmodmap -e "keysym Caps_Lock = BackSpace
 export PHD_HOME=$HOME/repos/phd
 export PAPERS=$PHD_HOME/papers
 export REPORTS=$PHD_HOME/reports
+export THESIS=$PHD_HOME/thesis
 alias phd='cd $PHD_HOME'
 alias papers='cd $PAPERS'
 alias reports='cd $REPORTS'
+alias thesis='cd $THESIS'
 alias tracer='cd $PHD_HOME/tracer'
 alias neotracer='cd $PHD_HOME/neoTracer'
 alias tracerdev='tracer && pipenv shell --fancy'
@@ -59,4 +61,10 @@ alias cat="bat"
 
 # Use a better version of ls and tree
 alias ll="exa --long --header"
+alias la="exa --long --header --all"
 alias tree="exa --tree"
+
+# Yadm 
+alias yst="yadm status"
+alias ya="yadm add"
+alias yc="yadm commit"
