@@ -8,7 +8,6 @@ xontrib load jedi
 
 ## Add in VI Mode indicator ##
 
-
 # This will make things really slow as it updates the prompt state everytime, which if you
 # are doing git repo states aswell could be really slow!
 #$UPDATE_PROMPT_ON_KEYPRESS = True
@@ -46,7 +45,7 @@ else:
 
 ###### Aliases ######
 
-# Load all the zsh_aliaes
+# Load all the zsh_aliases
 source-bash --overwrite-aliases $HOME/.zsh_aliases
 
 # Directories
