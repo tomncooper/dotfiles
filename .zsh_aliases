@@ -1,8 +1,9 @@
 # All your aliases are belong to me!
 
 # System Commands
-#alias off='sudo shutdown now'
+alias off='sudo shutdown now'
 alias reboot='sudo reboot'
+alias sleep='sudo systemctl suspend'
 
 # Audio 
 alias vup='pamixer -i 5'
