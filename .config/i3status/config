@@ -22,45 +22,50 @@ order += "tztime cal"
 order += "tztime uk"
 
 wireless _first_ {
-        format_up = "W: %essid - %quality %bitrate %frequency - %ip"
-        format_down = "W: down"
+        format_up = " %essid - %quality %bitrate %frequency - %ip"
+        format_down = " down"
 }
 
 ethernet _first_ {
         # if you use %speed, i3status requires root privileges
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+        format_up = "%ip (%speed)"
+        format_down = " down"
 }
 
 battery 0 {
         format = "%status %percentage %remaining"
+        status_bat = ""
+        status_full = ""
+        status_chr = ""
+        low_threshold = 25
+        threshold_type = "percentage"
 }
 
 tztime date {
-        format = "%A %d %B %Y"
+        format = " %A %d %B %Y"
         timezone= "Europe/London"
 }
 
 tztime uk {
-        format = "UK: %time"
+        format = "🇬🇧 %time"
         format_time = "%H:%M:%S"
         timezone= "Europe/London"
 }
 
 tztime cal {
-        format = "CAL: %time"
+        format = "🇺🇸 %time"
         format_time = "%H:%M:%S"
         timezone= "US/Pacific"
 }
 
 cpu_usage {
-	format = "CPU: %usage"
+	format = " %usage"
 }
 
 load {
-        format = "Load: %1min"
+        format = "%1min"
 }
 
 disk "/" {
-        format = "Drive: %total/%used/%avail"
+        format = " %total/%used/%avail"
 }
