@@ -169,4 +169,3 @@ exec_always --no-startup-id feh --randomize --bg-fill $HOME/GDrive/Photos/Wallpa
 exec_always --no-startup-id rescuetime
 exec_always --no-startup-id dunst
 exec --no-startup-id insync start
-exec --no-startup-id /usr/lib/kdeconnectd
