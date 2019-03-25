@@ -83,12 +83,15 @@ export GOPATH=$HOME/repos/go
 export PATH=$PATH:$GOPATH/bin
 alias gb=$GOPATH/bin/gb
 
+# Rust setup
+export PATH=$PATH:$HOME/.cargo/bin
+
 # Ruby setup
-PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export GEM_HOME=$HOME/.gem
 
 # Haskell setup
-PATH=$PATH:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/.cabal/bin
 alias cabex='cabal exec "$SHELL"'
 
 # Storm binaries
