@@ -69,3 +69,6 @@ alias tree="exa --tree"
 alias yst="yadm status"
 alias ya="yadm add"
 alias yc="yadm commit"
+
+# Weather app
+alias weather="curl http://wttr.in"

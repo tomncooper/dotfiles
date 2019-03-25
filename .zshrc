@@ -94,6 +94,9 @@ export GEM_HOME=$HOME/.gem
 export PATH=$PATH:$HOME/.cabal/bin
 alias cabex='cabal exec "$SHELL"'
 
+# RUST Setup
+export PATH=$PATH:$HOME/.cargo/bin
+
 # Storm binaries
 export PATH=$PATH:$HOME/tools/storm/bin
 
