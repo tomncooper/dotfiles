@@ -4,8 +4,8 @@
 [push]
     default = simple
 [diff]
-    tool = vimdiff
+	tool = vimdiff
 [difftool]
-    prompt = false
+	prompt = false
 [alias]
     d = difftool

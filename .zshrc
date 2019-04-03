@@ -73,6 +73,7 @@ eval "$(fasd --init posix-alias zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-i
 #Set default apps
 export VISUAL=vim
 export EDITOR=vim
+export BROWSER=firefox
 
 # Add PHD code modules to the python path
 export PYTHONPATH=$PYTHONPATH:$HOME/repos/phd
