@@ -50,7 +50,7 @@ alias per="pipenv run"
 alias perp="pipenv run python"
 alias pin="pipenv install"
 alias pupg="pipenv update"
-alias pipython="pipenv run ipython --profile=tom"
+alias pipython="pipenv run ipython --profile=tom --matplotlib"
 alias pitpython="pipenv run ptipython --vi"
 alias pvim="pipenv run vim"
 
