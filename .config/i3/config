@@ -158,6 +158,10 @@ focus_follows_mouse no
 # Add in shortcut for vim anywhere 
 bindsym $mod+Shift+x exec $HOME/.vim-anywhere/bin/run
 
+# Enable screen brightness modifiers for the GGPro
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
