@@ -26,11 +26,8 @@ Plugin 'w0rp/ale'
 Plugin 'ambv/black'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vimwiki/vimwiki'
-Plugin 'mattn/calendar-vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
@@ -48,8 +45,7 @@ set number                " Display line numbers
 set ruler                 " Display cursor position
 set wrap                  " Wrap lines when they are too long
 
-set scrolloff=6           " Display at least 3 lines around you cursor
-                          " (for scrolling)
+set scrolloff=6           " Display at least 6 lines around you cursor (for scrolling)
 
 set guioptions=T          " Enable the toolbar
 set textwidth=90          " Set the text width so that hard wrapping occurs
@@ -184,9 +180,5 @@ let g:pandoc#formatting#textwidth = 90
 let g:ale_python_mypy_options = "--ignore-missing-imports"
 
 " Black options
+" Run black every time you save a python file
 autocmd BufWritePre *.py execute ':Black'
-
-" NERD Tree settings
-" Auto Open 
-"autocmd VimEnter * NERDTree
-"autocmd BufWinEnter * NERDTreeMirror
