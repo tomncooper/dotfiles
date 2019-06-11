@@ -105,9 +105,9 @@ export PATH=$PATH:$HOME/tools/storm/bin
 export PATH=$PATH:$HOME/tools/heron/bin
 
 # Add bazel build variables
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
-export CC=/usr/bin/gcc
-export CXX=/usr/bin/g++
+#export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+#export CC=/usr/bin/gcc
+#export CXX=/usr/bin/g++
 
 # Set the timewarrior data folder location
 export TIMEWARRIORDB=$HOME/GDrive/Tasks/TimeWarrior
