@@ -311,7 +311,7 @@ c.TerminalInteractiveShell.highlight_matching_brackets = True
 
 ## The name or class of a Pygments style to use for syntax highlighting. To see
 #  available styles, run `pygmentize -L styles`.
-c.TerminalInteractiveShell.highlighting_style = "friendly"
+c.TerminalInteractiveShell.highlighting_style = "monokai"
 
 ## Override highlighting format for specific tokens
 # c.TerminalInteractiveShell.highlighting_style_overrides = {}
