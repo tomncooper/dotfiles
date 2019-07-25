@@ -12,6 +12,7 @@ alias mute='pamixer -m'
 
 # Keyboard layouts]
 alias kbgb='setxkbmap -layout gb'
+alias kbus='setxkbmap -layout us'
 alias capbk='xmodmap -e "clear lock" && xmodmap -e "keysym Caps_Lock = BackSpace"'
 
 # PhD envs and aliases
