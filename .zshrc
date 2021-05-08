@@ -67,9 +67,6 @@ alias zshconfig="vim ~/.zshrc"
 #Stop Ctrl+S killing the screen updates in vim
 stty -ixon
 
-# Set up fasd directory cache
-eval "$(fasd --init posix-alias zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-install zsh-wcomp)"
-
 #Set default apps
 export VISUAL=vim
 export EDITOR=vim
@@ -91,30 +88,8 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export GEM_HOME=$HOME/.gem
 
-# Haskell setup
-export PATH=$PATH:$HOME/.cabal/bin
-alias cabex='cabal exec "$SHELL"'
-
 # RUST Setup
 export PATH=$PATH:$HOME/.cargo/bin
 
 # Storm binaries
 export PATH=$PATH:$HOME/tools/storm/bin
-
-# Heron client tools
-export PATH=$PATH:$HOME/tools/heron/bin
-
-# Add bazel build variables
-#export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
-#export CC=/usr/bin/gcc
-#export CXX=/usr/bin/g++
-
-# Set the timewarrior data folder location
-export TIMEWARRIORDB=$HOME/GDrive/Tasks/TimeWarrior
-
-# Add the gremlin programs to the path
-export PATH=$PATH:$HOME/tools/gremlin-server/bin
-export PATH=$PATH:$HOME/tools/gremlin-console/bin
-
-# Add makelatex python script to the path
-export PATH=$PATH:$HOME/tools/makelatex

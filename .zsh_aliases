@@ -5,15 +5,22 @@ alias off='sudo shutdown now'
 alias reboot='sudo reboot'
 alias sleep='sudo systemctl suspend'
 
-# Audio 
-alias vup='pamixer -i 5'
-alias vd='pamixer -d 5'
-alias mute='pamixer -m'
+# Vim
+alias v='vim'
 
 # Keyboard layouts]
 alias kbgb='setxkbmap -layout gb'
 alias kbus='setxkbmap -layout us'
 alias capbk='xmodmap -e "clear lock" && xmodmap -e "keysym Caps_Lock = BackSpace"'
+
+# When using sudo, use alias expansion (otherwise sudo ignores your aliases)
+alias sudo='sudo '
+
+# Notes
+export NOTES=$HOME/Documents/Notes
+alias notes='cd $NOTES'
+alias diary='mkdir -p $NOTES/diary/$(date +"%Y/%m") && $EDITOR $NOTES/diary/$(date +"%Y/%m/%Y-%m-%d.md")'
+alias yesterday='mkdir -p $NOTES/diary/$(date -d yesterday +"%Y/%m") && $EDITOR $NOTES/diary/$(date -d yesterday +"%Y/%m/%Y-%m-%d.md")'
 
 # PhD envs and aliases
 export PHD_HOME=$HOME/repos/phd
@@ -36,28 +43,17 @@ alias tracerlist='az vm list -d --output=table -g TNCStorm'
 alias tdbup='az vm start --resource-group TNCStorm --name TNC-Tracer --no-wait'
 alias off='bash $PHD_HOME/tracerdevops/azure/traceroff.sh'
 alias phdbackup='tar -zcvf phdbackup.tar.gz $PHD_HOME'
-alias wtasks='task pro:phd'
 alias caladrius='cd $PHD_HOME/caladrius'
 
-# Tracer Neo4J DB command line
-alias neodev='bash $PHD_HOME/tracerdevops/docker/neo-dev-container.sh'
-
-# Gremlin Dev server
-alias gremstart='gremlin-server.sh start $HOME/tools/gremlin-server/conf/gremlin-server-modern-py.yaml'
-alias gremstop='gremlin-server.sh stop'
-alias regrem='gremstop && sleep 5 && gremstart'
-
 # Pipenv commands
-alias per="pipenv run"
-alias perp="pipenv run python"
-alias pin="pipenv install"
-alias pupg="pipenv update"
-alias pipython="pipenv run ipython --profile=tom"
-alias pitpython="pipenv run ptipython --vi"
-alias pvim="pipenv run vim"
-
-# Command line search options (requires ddgr and googler to be installed)
-alias ddg="ddgr -r 'uk-en' -n 5"
+alias per="poetry run"
+alias perp="poetry run python"
+alias pin="poetry install"
+alias padd="poetry add"
+alias pupg="poetry update"
+alias pipython="poetry run ipython --profile=tom"
+alias pitpython="poetry run ptipython --vi"
+alias pvim="poetry run vim"
 
 # Use a better version of cat command
 alias cat="bat"
@@ -67,10 +63,12 @@ alias ll="exa --long --header"
 alias la="exa --long --header --all"
 alias tree="exa --tree"
 
-# Yadm 
-alias yst="yadm status"
-alias ya="yadm add"
-alias yc="yadm commit"
-
 # Weather app
 alias weather="curl http://wttr.in"
+
+# Kubernetes
+alias k='kubectl'
+alias kl='kubectl logs'
+alias kg='kubectl get'
+alias kd='kubectl describe'
+alias ke='kubectl edit'
