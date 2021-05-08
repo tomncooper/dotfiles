@@ -27,14 +27,9 @@ Plugin 'ambv/black'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'vimwiki/vimwiki'
-Plugin 'rust-lang/rust.vim'
 Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax' 
-Plugin 'hura/vim-asymptote'
-
 "End the vundle config
 call vundle#end() 
 
