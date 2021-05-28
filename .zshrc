@@ -32,7 +32,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python archlinux httpie minikube vundle history-substring-search zsh-syntax-highlighting)
+plugins=(python archlinux httpie minikube vundle history-substring-search zsh-syntax-highlighting)
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -93,3 +93,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 # Storm binaries
 export PATH=$PATH:$HOME/tools/storm/bin
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/tcooper/.sdkman"
+[[ -s "/home/tcooper/.sdkman/bin/sdkman-init.sh" ]] && source "/home/tcooper/.sdkman/bin/sdkman-init.sh"

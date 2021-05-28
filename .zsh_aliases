@@ -16,6 +16,11 @@ alias capbk='xmodmap -e "clear lock" && xmodmap -e "keysym Caps_Lock = BackSpace
 # When using sudo, use alias expansion (otherwise sudo ignores your aliases)
 alias sudo='sudo '
 
+# Git
+alias gst='git status -s'
+alias ga='git add'
+alias gc='git commit'
+
 # Notes
 export NOTES=$HOME/Documents/Notes
 alias notes='cd $NOTES'
