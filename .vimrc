@@ -5,33 +5,39 @@
 set nocompatible
 set encoding=utf-8
 
-"Temp shut off filetype for vundle setup
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-
 " Set ALE to provide completion - This has to be set before ALE loads
 let g:ale_completion_enabled = 1
 
-"Start vundle config
-call vundle#begin()
+" Load vim plug if it is not already there
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+"Start vim plug config
+call plug#begin('~/.vim/plugged')
 
 "Add custom plugins here
-Plugin 'vim-airline/vim-airline'
-Plugin 'w0rp/ale'
-Plugin 'ambv/black'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'fatih/vim-go'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax' 
-"End the vundle config
-call vundle#end() 
+Plug 'vim-airline/vim-airline'
+Plug 'w0rp/ale'
+Plug 'psf/black'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdcommenter'
+Plug 'fatih/vim-go'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax' 
+Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"End the vim plug config
+call plug#end() 
 
 " -- Display
 set title                 " Update the title of your window or your terminal
@@ -39,6 +45,8 @@ set relativenumber	  " Sets all line numbers to be displayed relative to the cur
 set number                " Display line numbers
 set ruler                 " Display cursor position
 set wrap                  " Wrap lines when they are too long
+set linebreak
+set nolist
 
 set scrolloff=6           " Display at least 6 lines around you cursor (for scrolling)
 
@@ -135,45 +143,35 @@ set laststatus=2 " Enable airline status bar without needing to split the window
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-" YouCompleteMeSettings
+" coc.nvim settings 
 
-" Point YCM to the Pipenv created virtualenv, if possible
-" At first, get the output of 'pipenv --venv' command.
-let pipenv_venv_path = system('pipenv --venv')
-" The above system() call produces a non zero exit code whenever
-" a proper virtual environment has not been found.
-" So, second, we only point YCM to the virtual environment when
-" the call to 'pipenv --venv' was successful.
-" Remember, that 'pipenv --venv' only points to the root directory
-" of the virtual environment, so we have to append a full path to
-" the python executable.
-if shell_error == 0
-  let venv_path = substitute(pipenv_venv_path, '\n', '', '')
-  let g:ycm_python_binary_path = venv_path . '/bin/python'
-else
-  let g:ycm_python_binary_path = 'python'
-endif
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
-" Set a shortcut for GoTo commands
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 
-" VimWiki options
-let g:vimwiki_list = [{
-    \ 'path': '$HOME/GDrive/Documents/Wikis/phd', 
-    \ 'path_html': '$HOME/GDrive/Documents/Wikis/phd/html',
-    \ 'template_path' : '$HOME/GDrive/Documents/Wikis/templates',
-    \ 'template_default' : 'default',
-    \ 'template_ext' : '.html'}]
-let g:vimwiki_use_calendar = 1
+" Black settings
+"autocmd BufWritePre *.py execute ':Black'
 
 " Vim-PanDoc options
 let g:pandoc#modules#disabled = ["folding"]
-let g:pandoc#formatting#mode = 'hA'
+let g:pandoc#formatting#mode = 'sA'
 let g:pandoc#formatting#textwidth = 90
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+  endif
+  let g:ycm_semantic_triggers.pandoc = ['@']
+
+  let g:ycm_filetype_blacklist = {}
 
 " ALE options
 let g:ale_python_mypy_options = "--ignore-missing-imports"
 
-" Black options
-" Run black every time you save a python file
-autocmd BufWritePre *.py execute ':Black'
+" NERDTree options
+map <C-n> :NERDTreeToggle<CR>
