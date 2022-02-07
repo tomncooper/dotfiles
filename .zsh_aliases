@@ -20,6 +20,7 @@ alias sudo='sudo '
 alias gst='git status -s'
 alias ga='git add'
 alias gc='git commit'
+alias gpumr='git pull upstream main --rebase'
 
 # Notes
 export NOTES=$HOME/Documents/Notes
