@@ -51,7 +51,7 @@ alias off='bash $PHD_HOME/tracerdevops/azure/traceroff.sh'
 alias phdbackup='tar -zcvf phdbackup.tar.gz $PHD_HOME'
 alias caladrius='cd $PHD_HOME/caladrius'
 
-# Pipenv commands
+# Poetry commands
 alias per="poetry run"
 alias perp="poetry run python"
 alias pin="poetry install"
