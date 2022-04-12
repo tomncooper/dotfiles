@@ -74,7 +74,9 @@ alias weather="curl http://wttr.in"
 
 # Kubernetes
 alias k='kubectl'
-alias kl='kubectl logs'
-alias kg='kubectl get'
-alias kd='kubectl describe'
-alias ke='kubectl edit'
+alias kl='k logs'
+alias kg='k get'
+alias kd='k describe'
+alias ke='k edit'
+alias mk='minikube'
+alias mkpl='mk profile list'

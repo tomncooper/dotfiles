@@ -35,6 +35,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax' 
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/tagbar'
 
 "End the vim plug config
 call plug#end() 
@@ -175,3 +176,6 @@ let g:ale_python_mypy_options = "--ignore-missing-imports"
 
 " NERDTree options
 map <C-n> :NERDTreeToggle<CR>
+
+" TagBar 
+nmap <F8> :TagbarToggle<F8>
