@@ -32,7 +32,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux history-substring-search zsh-syntax-highlighting)
+plugins=(git history-substring-search zsh-syntax-highlighting)
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -79,10 +79,6 @@ export PATH=$PATH:$HOME/bin
 # Add PIP installed binaries to the path
 export PATH=$PATH:$HOME/.local/bin
 
-# Add PHD code modules to the python path
-export PYTHONPATH=$PYTHONPATH:$HOME/repos/phd
-export MYPYPATH=$MYPYPATH:$HOME/repos/phd
-
 # GO variables
 export GOPATH=$HOME/repos/go
 export PATH=$PATH:$GOPATH/bin
@@ -91,15 +87,8 @@ alias gb=$GOPATH/bin/gb
 # Rust setup
 export PATH=$PATH:$HOME/.cargo/bin
 
-# Ruby setup
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
-export GEM_HOME=$HOME/.gem
-
 # RUST Setup
 export PATH=$PATH:$HOME/.cargo/bin
-
-# Storm binaries
-export PATH=$PATH:$HOME/tools/storm/bin
 
 # Kubernetes
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
@@ -107,4 +96,3 @@ export PATH=$PATH:$HOME/tools/storm/bin
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/tom/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-

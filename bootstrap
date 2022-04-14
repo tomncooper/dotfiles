@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install oh my zsh
-cd $HOME sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # Copy the solarized theme to to the vim folder
 mkdir -p $HOME/.vim/colors
