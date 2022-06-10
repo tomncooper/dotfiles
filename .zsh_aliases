@@ -28,29 +28,6 @@ alias notes='cd $NOTES'
 alias diary='mkdir -p $NOTES/diary/$(date +"%Y/%m") && $EDITOR $NOTES/diary/$(date +"%Y/%m/%Y-%m-%d.md")'
 alias yesterday='mkdir -p $NOTES/diary/$(date -d yesterday +"%Y/%m") && $EDITOR $NOTES/diary/$(date -d yesterday +"%Y/%m/%Y-%m-%d.md")'
 
-# PhD envs and aliases
-export PHD_HOME=$HOME/repos/phd
-export PAPERS=$PHD_HOME/papers
-export REPORTS=$PHD_HOME/reports
-export THESIS=$PHD_HOME/thesis
-alias phd='cd $PHD_HOME'
-alias papers='cd $PAPERS'
-alias reports='cd $REPORTS'
-alias thesis='cd $THESIS'
-alias tracer='cd $PHD_HOME/tracer'
-alias neotracer='cd $PHD_HOME/neoTracer'
-alias stormtimer='cd $PHD_HOME/StormTimer'
-alias tracerdev='tracer && pipenv shell --fancy'
-alias rtm='cd $PHD_HOME/tracer_rtm'
-alias ui='cd $PHD_HOME/tracer_ui'
-alias tracerup='bash $PHD_HOME/tracerdevops/azure/startCluster.sh'
-alias tracerdown='bash $PHD_HOME/tracerdevops/azure/stopCluster.sh'
-alias tracerlist='az vm list -d --output=table -g TNCStorm'
-alias tdbup='az vm start --resource-group TNCStorm --name TNC-Tracer --no-wait'
-alias off='bash $PHD_HOME/tracerdevops/azure/traceroff.sh'
-alias phdbackup='tar -zcvf phdbackup.tar.gz $PHD_HOME'
-alias caladrius='cd $PHD_HOME/caladrius'
-
 # Poetry commands
 alias per="poetry run"
 alias perp="poetry run python"
@@ -80,3 +57,9 @@ alias kd='k describe'
 alias ke='k edit'
 alias mk='minikube'
 alias mkpl='mk profile list'
+
+# Fedora
+alias dupg='sudo dnf update'
+alias doud='sudo dnf offline-upgrade download'
+alias dour='sudo dnf offline-upgrade reboot'
+alias din='sudo dnf install'

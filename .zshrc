@@ -93,6 +93,11 @@ export PATH=$PATH:$HOME/.cargo/bin
 # Kubernetes
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
+# Antlr
+export CLASSPATH=".:/usr/local/lib/antlr-4.10-complete.jar:$CLASSPATH"
+alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.10-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.10-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
