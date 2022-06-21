@@ -13,6 +13,7 @@
         trustExitCode = false
 [merge]
         tool = kdiff3
+        conflictstyle = diff3
 [mergetool]
         prompt = false
         keepBackup = false
