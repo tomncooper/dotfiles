@@ -60,9 +60,6 @@ bindkey "^[[3~" delete-char
 # Read all the aliases
 source $HOME/.zsh_aliases
 
-# Read the local config file -- This is not stored in yadm so use for system specific config
-source $HOME/.zsh_local
-
 alias zshconfig="vim ~/.zshrc"
 
 #Stop Ctrl+S killing the screen updates in vim
@@ -76,6 +73,10 @@ export BROWSER=firefox
 # Add user binaries to the path
 export PATH=$PATH:$HOME/bin
 
+# Add Kafka Tools
+export KAFKA_HOME=$HOME/tools/kafka
+export PATH=$PATH:$KAFKA_HOME/bin
+
 # Add PIP installed binaries to the path
 export PATH=$PATH:$HOME/.local/bin
 
@@ -88,6 +89,11 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 # Kubernetes
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# Read the local config file -- This is not stored in yadm so use for system specific config
+source $HOME/.zsh_local
+
+export AWS_SDK_LOAD_CONFIG=true
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
