@@ -47,14 +47,12 @@ tztime date {
 }
 
 tztime uk {
-        format = "🇬🇧 %time"
-        format_time = "%H:%M:%S"
+        format = "🇬🇧 %H:%M:%S"
         timezone= "Europe/London"
 }
 
 tztime cal {
-        format = "🇺🇸 %time"
-        format_time = "%H:%M:%S"
+        format = "🇺🇸 %H:%M:%S"
         timezone= "US/Pacific"
 }
 
