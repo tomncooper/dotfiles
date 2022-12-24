@@ -1,0 +1,66 @@
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Add YADM repository
+      ansible.builtin.yum_repository:
+        name: yadm
+        description: YADM Repository
+        baseurl: https://download.opensuse.org/repositories/home:/TheLocehiliosan:/yadm/Fedora_36/
+        gpgkey: https://download.opensuse.org/repositories/home:/TheLocehiliosan:/yadm/Fedora_36/repodata/repomd.xml.key
+        gpgcheck: 1
+    - name: Add Wavebox repository
+      ansible.builtin.yum_repository:
+        name: wavebox-stable
+        description: Wavebox Repository
+        baseurl: https://download.wavebox.app/stable/linux/rpm
+        gpgkey: https://download.wavebox.app/static/wavebox_repo.key
+        gpgcheck: 1
+    - name: Add 1Password repository
+      ansible.builtin.yum_repository:
+        name: 1password-stable
+        description: 1Password Stable Channel Repository
+        baseurl: https://downloads.1password.com/linux/rpm/stable/$basearch
+        gpgkey: https://downloads.1password.com/linux/keys/1password.asc
+        gpgcheck: 1
+        repo_gpgcheck: 1
+    - name: Add 1Password repository
+      ansible.builtin.yum_repository:
+        name: vscode
+        description: Visual Studio Code
+        baseurl: https://packages.microsoft.com/yumrepos/vscode
+        gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+        enabled: 1
+        gpgcheck: 1
+    - name: Add the Insync repository
+      ansible.builtin.yum_repository:
+        name: insync
+        description: Insync Repository
+        baseurl: http://yum.insync.io/fedora/$releasever/
+        gpgkey: https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
+        gpgcheck: 1
+        enabled: 1
+    - name: Add the flathub flatpak repository remote
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    - name: Install native packages
+      dnf: name={{item}}
+      with_items:
+        - zsh
+        - zsh-syntax-highlighting
+        - vim
+        - exa
+        - bat
+        - yadm
+        - Wavebox
+        - 1password
+        - 1password-cli
+        - code
+        - insync
+        - kdiff3
+    - name: Install flatpak packages
+      community.general.flatpak:
+        name: 
+          - md.obsidian.Obsidian
+          - us.zoom.Zoom 
