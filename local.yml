@@ -59,6 +59,8 @@
         - code
         - insync
         - kdiff3
+        - ipython
+        - python-poetry
     - name: Install flatpak packages
       community.general.flatpak:
         name: 

@@ -41,7 +41,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec "rofi -modi drun,run -show combi -theme solarized_alternate -font 'hack 24'"
+bindsym $mod+d exec "rofi -modi drun,run -show drun -theme solarized_alternate -font 'hack 24'"
 
 # change focus
 bindsym $mod+h focus left
