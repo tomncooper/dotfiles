@@ -170,7 +170,7 @@ bar {
 }
 
 # Start up programs
-exec_always --no-startup-id feh --randomize --bg-fill $HOME/GDrive/Photos/Wallpaper/*
+exec_always --no-startup-id feh --randomize --bg-fill $HOME/Insync/tom.n.cooper@gmail.com/Google\ Drive/Photos/Wallpaper/*
 exec_always --no-startup-id rescuetime
 exec_always --no-startup-id dunst
 exec_always --no-startup-id lxpolkit
