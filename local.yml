@@ -39,6 +39,14 @@
         gpgkey: https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
         gpgcheck: 1
         enabled: 1
+    - name: Add the Hashicorp repo
+      ansible.builtin.yum_repository:
+        name: hashicorp-stable
+        description: Hashicorp Stable Repository
+        baseurl: https://rpm.releases.hashicorp.com/RHEL/9/$basearch/stable
+        gpgkey: https://rpm.releases.hashicorp.com/gpg
+        gpgcheck: 1
+        enabled: 1
     - name: Add the flathub flatpak repository remote
       community.general.flatpak_remote:
         name: flathub
@@ -61,6 +69,7 @@
         - kdiff3
         - ipython
         - python-poetry
+        - terraform
     - name: Install flatpak packages
       community.general.flatpak:
         name: 
