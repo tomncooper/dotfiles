@@ -70,6 +70,7 @@
         - ipython
         - python-poetry
         - terraform
+        - packer
     - name: Install flatpak packages
       community.general.flatpak:
         name: 
