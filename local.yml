@@ -76,3 +76,4 @@
         name: 
           - md.obsidian.Obsidian
           - us.zoom.Zoom 
+          - org.zotero.Zotero
