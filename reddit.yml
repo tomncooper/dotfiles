@@ -1,0 +1,30 @@
+- import_playbook: local.yml
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Add the Hashicorp repo
+      ansible.builtin.yum_repository:
+        name: hashicorp-stable
+        description: Hashicorp Stable Repository
+        baseurl: https://rpm.releases.hashicorp.com/RHEL/9/$basearch/stable
+        gpgkey: https://rpm.releases.hashicorp.com/gpg
+        gpgcheck: 1
+        enabled: 1
+    - name: Add the Pritunl repo
+      ansible.builtin.yum_repository:
+        name: pritunl-stable
+        description: Pritunl Stable Repository
+        baseurl: https://repo.pritunl.com/stable/yum/fedora/37/
+        gpgkey: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7568d9bb55ff9e5287d586017ae645c0cf8e292a
+        gpgcheck: 1
+        enabled: 1
+    - name: Install native packages
+      dnf: name={{item}}
+      with_items:
+        - terraform
+        - packer
+        - pritunl-client-electron
+    - name: Install flatpak packages
+      community.general.flatpak:
+        name: 
+          - us.zoom.Zoom 
