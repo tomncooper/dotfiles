@@ -18,8 +18,9 @@ order += "battery 0"
 order += "cpu_usage"
 #order += "load"
 order += "tztime date"
-order += "tztime cal"
 order += "tztime uk"
+order += "tztime ne"
+order += "tztime cal"
 
 wireless _first_ {
         format_up = "📡 %essid - %quality %bitrate %frequency - %ip"
@@ -52,8 +53,13 @@ tztime uk {
 }
 
 tztime cal {
-        format = "🇺🇸 %H:%M:%S"
+        format = "🇺🇸W %H:%M:%S"
         timezone= "US/Pacific"
+}
+
+tztime ne {
+        format = "🇺🇸E %H:%M:%S"
+        timezone= "US/Eastern"
 }
 
 cpu_usage {
