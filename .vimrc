@@ -26,7 +26,6 @@ call plug#begin('~/.vim/plugged')
 "Add custom plugins here
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
-Plug 'psf/black'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
@@ -34,8 +33,6 @@ Plug 'fatih/vim-go'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax' 
 Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/tagbar'
 
 "End the vim plug config
 call plug#end() 
@@ -95,7 +92,7 @@ set background=dark
 colorscheme solarized
 
 " Set the Spell Check highlighting options
-set spell spelllang=en_gb
+" set spell spelllang=en_gb
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=white ctermbg=red
 
@@ -144,22 +141,6 @@ set laststatus=2 " Enable airline status bar without needing to split the window
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-" coc.nvim settings 
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-" Black settings
-"autocmd BufWritePre *.py execute ':Black'
-
 " Vim-PanDoc options
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#formatting#mode = 'sA'
@@ -176,6 +157,3 @@ let g:ale_python_mypy_options = "--ignore-missing-imports"
 
 " NERDTree options
 map <C-n> :NERDTreeToggle<CR>
-
-" TagBar 
-nmap <F8> :TagbarToggle<F8>
