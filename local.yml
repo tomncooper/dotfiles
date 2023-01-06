@@ -61,6 +61,7 @@
         - kdiff3
         - ipython
         - python-poetry
+        - glances
     - name: Install flatpak packages
       community.general.flatpak:
         name: 
