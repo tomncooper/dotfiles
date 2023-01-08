@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Install deps 
+sudo dnf install git ansible 
+
+# Run ansible playbook
+sudo ansible-pull -U https://github.com/tomncooper/dotfiles.git
+
+# Make sure the local config file is there
+touch .zsh_local
+
 # Install oh my zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
