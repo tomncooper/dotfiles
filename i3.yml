@@ -1,0 +1,10 @@
+- import_playbook: local.yml
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Install native packages
+      dnf: name={{item}}
+      with_items:
+        - arandr
+        - lxpolkit
+        - pasystray
