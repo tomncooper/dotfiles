@@ -6,6 +6,9 @@ sudo dnf install git ansible
 # Run ansible playbook
 sudo ansible-pull -U https://github.com/tomncooper/dotfiles.git
 
+# Install the offline upgrade plugin for dnf
+dnf install 'dnf-command(offline-upgrade)'
+
 # Make sure the local config file is there
 touch .zsh_local
 
