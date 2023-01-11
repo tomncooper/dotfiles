@@ -18,9 +18,9 @@ order += "battery 0"
 order += "cpu_usage"
 #order += "load"
 order += "tztime date"
-order += "tztime uk"
-order += "tztime ne"
 order += "tztime cal"
+order += "tztime ne"
+order += "tztime uk"
 
 wireless _first_ {
         format_up = "📡 %essid - %quality %bitrate %frequency - %ip"
