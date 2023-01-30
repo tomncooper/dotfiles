@@ -171,7 +171,7 @@ bar {
 
 # Start up programs
 exec_always --no-startup-id feh --randomize --bg-fill $HOME/Insync/tom.n.cooper@gmail.com/Google\ Drive/Photos/Wallpaper/*
-exec --no-startup-id rescuetime
+exec_always --no-startup-id rescuetime
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id lxpolkit
