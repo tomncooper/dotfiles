@@ -20,3 +20,5 @@
         keepTemporaries = false
 [mergetool "kdiff3"]
         path = /usr/bin/kdiff3
+[url "git@github.snooguts.net:"]
+	insteadOf = https://github.snooguts.net/

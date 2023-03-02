@@ -23,7 +23,9 @@
       with_items:
         - terraform
         - packer
+        - puppet
         - pritunl-client-electron
+        - go-task
     - name: Install flatpak packages
       community.general.flatpak:
         name: 
