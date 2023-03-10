@@ -26,6 +26,7 @@
         - puppet
         - pritunl-client-electron
         - go-task
+        - helm
     - name: Install flatpak packages
       community.general.flatpak:
         name: 
