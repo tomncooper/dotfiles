@@ -62,8 +62,11 @@
         - ipython
         - python-poetry
         - glances
+        - flac
+        - k3b
+        - strawberry
     - name: Install flatpak packages
       community.general.flatpak:
-        name: 
+        name:
           - md.obsidian.Obsidian
           - org.zotero.Zotero
