@@ -13,4 +13,5 @@
         - ranger
         - w3m
         - w3m-img
+        - rofi
         - polybar
