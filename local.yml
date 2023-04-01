@@ -52,6 +52,7 @@
         - vim
         - exa
         - bat
+        - fzf
         - yadm
         - Wavebox
         - 1password

@@ -16,3 +16,4 @@
         - rofi
         - polybar
         - light
+        - playerctl

@@ -27,7 +27,9 @@
         - pritunl-client-electron
         - go-task
         - helm
+        - ansible-lint
+        - protobuf-compiler
     - name: Install flatpak packages
       community.general.flatpak:
-        name: 
-          - us.zoom.Zoom 
+        name:
+          - us.zoom.Zoom

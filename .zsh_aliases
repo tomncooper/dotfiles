@@ -7,6 +7,7 @@ alias sleep='sudo systemctl suspend'
 
 # Vim
 alias v='vim'
+alias vf='vim $(fzf)'
 
 # Keyboard layouts]
 alias kbgb='setxkbmap -layout gb'
@@ -63,3 +64,7 @@ alias dupg='sudo dnf update'
 alias doud='sudo dnf offline-upgrade download'
 alias dour='sudo dnf offline-upgrade reboot'
 alias din='sudo dnf install'
+
+# Reddit 
+export REDDIT_HOME="$HOME/repos/reddit"
+alias devit="cd $REDDIT_HOME"
