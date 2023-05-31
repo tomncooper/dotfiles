@@ -66,6 +66,7 @@
         - flac
         - k3b
         - strawberry
+        - zeal
     - name: Install flatpak packages
       community.general.flatpak:
         name:
