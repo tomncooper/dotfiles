@@ -1,9 +1,17 @@
-### OH MY ZSH Boilerplate ###
+### Config for Homebrew ###
+export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
+export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
+export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Add the brew completions to the FPATH before loading oh-my-zsh
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-# Path to your oh-my-zsh installation.
+### Config for OH MY ZSH ###
+
+# Path to the oh-my-zsh installation.
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -32,7 +40,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history-substring-search zsh-syntax-highlighting)
+plugins=(git history-substring-search kube-ps1 zsh-syntax-highlighting)
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -41,7 +49,7 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-### My configs ###
+### My shell configs ###
 
 # Stop zsh recommending stupid things!
 ENABLE_CORRECTION="false"
@@ -89,6 +97,8 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 # Kubernetes
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+#PROMPT='$(kube_ps1)'$PROMPT
+RPROMPT='$(kube_ps1)'
 
 # Read the local config file -- This is not stored in yadm so use for system specific config
 source $HOME/.zsh_local
