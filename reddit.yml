@@ -18,6 +18,15 @@
         gpgkey: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7568d9bb55ff9e5287d586017ae645c0cf8e292a
         gpgcheck: 1
         enabled: 1
+    - name: Add the GCloud repo
+      ansible.builtin.yum_repository:
+        name: gcloud-cli
+        description: GCloud CLI Repository
+        baseurl: https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64
+        gpgkey: https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+        gpgcheck: 1
+        enabled: 1
+        repo_gpgcheck: 0
     - name: Install native packages
       dnf: name={{item}}
       with_items:
@@ -29,6 +38,7 @@
         - helm
         - ansible-lint
         - protobuf-compiler
+        - google-cloud-cli
     - name: Install flatpak packages
       community.general.flatpak:
         name:
