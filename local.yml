@@ -39,6 +39,10 @@
         gpgkey: https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
         gpgcheck: 1
         enabled: 1
+    - name: Add the bottom (resource monitor) repo
+      community.general.copr:
+        state: enabled
+        name: atim/bottom
     - name: Add the flathub flatpak repository remote
       community.general.flatpak_remote:
         name: flathub
@@ -62,7 +66,7 @@
         - kdiff3
         - ipython
         - python-poetry
-        - glances
+        - bottom
         - flac
         - k3b
         - strawberry
