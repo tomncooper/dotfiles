@@ -3,7 +3,6 @@
 # System Commands
 alias off='sudo shutdown now'
 alias reboot='sudo reboot'
-alias sleep='sudo systemctl suspend'
 
 # Vim
 alias v='vim'
@@ -43,9 +42,9 @@ alias pvim="poetry run vim"
 alias cat="bat"
 
 # Use a better version of ls and tree
-alias ll="exa --long --header"
-alias la="exa --long --header --all"
-alias tree="exa --tree"
+alias ll="eza --long --header"
+alias la="eza --long --header --all"
+alias tree="eza --tree"
 
 # Weather app
 alias weather="curl http://wttr.in"
@@ -53,8 +52,8 @@ alias weather="curl http://wttr.in"
 # Kubernetes
 alias k='kubectl'
 alias kl='k logs'
-alias kg='k get'
-alias kd='k describe'
+alias kg='k get' 
+alias kd='k describe' 
 alias ke='k edit'
 alias mk='minikube'
 alias mkpl='mk profile list'
@@ -68,3 +67,4 @@ alias din='sudo dnf install'
 # Reddit 
 export REDDIT_HOME="$HOME/repos/reddit"
 alias devit="cd $REDDIT_HOME"
+

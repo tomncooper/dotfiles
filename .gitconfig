@@ -22,3 +22,5 @@
         path = /usr/bin/kdiff3
 [url "git@github.snooguts.net:"]
 	insteadOf = https://github.snooguts.net/
+[safe]
+	directory = /drone/src
