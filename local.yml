@@ -39,6 +39,11 @@
         gpgkey: https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
         gpgcheck: 1
         enabled: 1
+    - name: Add GH CLI repository
+      ansible.builtin.yum_repository:
+        name: github-cli
+        description: GitHub CLI
+        baseurl: https://cli.github.com/packages/rpm/gh-cli.repo
     - name: Add the bottom (resource monitor) repo
       community.general.copr:
         state: enabled
@@ -71,9 +76,11 @@
         - k3b
         - strawberry
         - zeal
+        - gh
     - name: Install flatpak packages
       community.general.flatpak:
         name:
           - md.obsidian.Obsidian
           - org.zotero.Zotero
           - com.makemkv.MakeMKV
+          - com.plexamp.Plexamp
