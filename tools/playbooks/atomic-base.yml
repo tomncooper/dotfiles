@@ -1,0 +1,21 @@
+- import_playbook: base-repos.yml
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Install overlay package
+      community.general.rpm_ostree_pkg:
+        name: 
+          - zsh
+          - zsh-syntax-highlighting
+          - vim
+          - eza
+          - bat
+          - 1password
+          - 1password-cli
+    - name: Install flatpak packages
+      community.general.flatpak:
+        name:
+          - io.wavebox.Wavebox
+          - md.obsidian.Obsidian
+          - com.visualstudio.code
+          - org.zotero.Zotero

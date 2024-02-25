@@ -1,4 +1,4 @@
-- import_playbook: local.yml
+- import_playbook: fedora.yml
 - hosts: localhost
   become: true
   tasks:

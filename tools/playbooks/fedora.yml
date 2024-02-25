@@ -1,13 +1,7 @@
+- import_playbook: base-repos.yml
 - hosts: localhost
   become: true
   tasks:
-    - name: Add YADM repository
-      ansible.builtin.yum_repository:
-        name: yadm
-        description: YADM Repository
-        baseurl: https://download.opensuse.org/repositories/home:/TheLocehiliosan:/yadm/Fedora_36/
-        gpgkey: https://download.opensuse.org/repositories/home:/TheLocehiliosan:/yadm/Fedora_36/repodata/repomd.xml.key
-        gpgcheck: 1
     - name: Add Wavebox repository
       ansible.builtin.yum_repository:
         name: wavebox-stable
@@ -15,15 +9,7 @@
         baseurl: https://download.wavebox.app/stable/linux/rpm
         gpgkey: https://download.wavebox.app/static/wavebox_repo.key
         gpgcheck: 1
-    - name: Add 1Password repository
-      ansible.builtin.yum_repository:
-        name: 1password-stable
-        description: 1Password Stable Channel Repository
-        baseurl: https://downloads.1password.com/linux/rpm/stable/$basearch
-        gpgkey: https://downloads.1password.com/linux/keys/1password.asc
-        gpgcheck: 1
-        repo_gpgcheck: 1
-    - name: Add 1Password repository
+    - name: Add VSCode repository
       ansible.builtin.yum_repository:
         name: vscode
         description: Visual Studio Code
@@ -39,20 +25,6 @@
         gpgkey: https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
         gpgcheck: 1
         enabled: 1
-    - name: Add GH CLI repository
-      ansible.builtin.yum_repository:
-        name: github-cli
-        description: GitHub CLI
-        baseurl: https://cli.github.com/packages/rpm/gh-cli.repo
-    - name: Add the bottom (resource monitor) repo
-      community.general.copr:
-        state: enabled
-        name: atim/bottom
-    - name: Add the flathub flatpak repository remote
-      community.general.flatpak_remote:
-        name: flathub
-        state: present
-        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     - name: Install native packages
       dnf: name={{item}}
       with_items:
@@ -71,7 +43,6 @@
         - kdiff3
         - ipython
         - python-poetry
-        - bottom
         - flac
         - k3b
         - strawberry
