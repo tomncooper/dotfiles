@@ -17,5 +17,7 @@
         name:
           - io.wavebox.Wavebox
           - md.obsidian.Obsidian
-          - com.visualstudio.code
           - org.zotero.Zotero
+          - com.visualstudio.code
+          - com.jetbrains.IntelliJ-IDEA-Community
+
