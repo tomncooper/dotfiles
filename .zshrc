@@ -1,4 +1,4 @@
-if command -v brew &> /dev/null
+if [ -d "/home/linuxbrew" ]
 then
     ### Config for Homebrew ###
     export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
