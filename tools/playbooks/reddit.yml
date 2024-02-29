@@ -14,7 +14,7 @@
       ansible.builtin.yum_repository:
         name: pritunl-stable
         description: Pritunl Stable Repository
-        baseurl: https://repo.pritunl.com/stable/yum/fedora/37/
+        baseurl: https://repo.pritunl.com/stable/yum/fedora/39/
         gpgkey: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7568d9bb55ff9e5287d586017ae645c0cf8e292a
         gpgcheck: 1
         enabled: 1
@@ -22,7 +22,7 @@
       ansible.builtin.yum_repository:
         name: gcloud-cli
         description: GCloud CLI Repository
-        baseurl: https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64
+        baseurl: https://packages.cloud.google.com/yum/repos/cloud-sdk-el9-x86_64
         gpgkey: https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
         gpgcheck: 1
         enabled: 1
