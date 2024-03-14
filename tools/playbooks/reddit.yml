@@ -10,14 +10,6 @@
         gpgkey: https://rpm.releases.hashicorp.com/gpg
         gpgcheck: 1
         enabled: 1
-    - name: Add the Pritunl repo
-      ansible.builtin.yum_repository:
-        name: pritunl-stable
-        description: Pritunl Stable Repository
-        baseurl: https://repo.pritunl.com/stable/yum/fedora/39/
-        gpgkey: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7568d9bb55ff9e5287d586017ae645c0cf8e292a
-        gpgcheck: 1
-        enabled: 1
     - name: Add the GCloud repo
       ansible.builtin.yum_repository:
         name: gcloud-cli
@@ -27,18 +19,26 @@
         gpgcheck: 1
         enabled: 1
         repo_gpgcheck: 0
+    - name: Add the Cloudflare Warp repo
+      ansible.builtin.yum_repository:
+        name: cloudflare-warp-stable
+        description: Cloudflare Warp Repository
+        baseurl: https://pkg.cloudflareclient.com/rpm
+        gpgkey: https://pkg.cloudflareclient.com/pubkey.gpg
+        gpgcheck: 1
+        enabled: 1
     - name: Install native packages
       dnf: name={{item}}
       with_items:
         - terraform
         - packer
         - puppet
-        - pritunl-client-electron
         - go-task
         - helm
         - ansible-lint
         - protobuf-compiler
         - google-cloud-cli
+        - cloudflare-warp
     - name: Install flatpak packages
       community.general.flatpak:
         name:
