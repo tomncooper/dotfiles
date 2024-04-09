@@ -25,6 +25,14 @@
         gpgkey: https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
         gpgcheck: 1
         enabled: 1
+    - name: Add the GitHub CLI repository
+      ansible.builtin.yum_repository:
+        name: github-cli
+        description: GitHub CLI
+        baseurl: https://cli.github.com/packages/rpm
+        gpgkey: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x23F3D4EA75716059
+        enabled: 1
+        gpgcheck: 1
     - name: Install native packages
       dnf: name={{item}}
       with_items:
