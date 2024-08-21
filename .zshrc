@@ -98,13 +98,13 @@ export PATH=$PATH:$HOME/.local/bin
 export GOPATH=$HOME/repos/go
 export PATH=$PATH:$GOPATH/bin
 
-# Rust setup
-export PATH=$PATH:$HOME/.cargo/bin
-
 # Kubernetes
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 #PROMPT='$(kube_ps1)'$PROMPT
 RPROMPT='$(kube_ps1)'
+
+# Minikube
+source <(minikube completion zsh)
 
 # Read the local config file -- This is not stored in yadm so use for system specific config
 source $HOME/.zsh_local

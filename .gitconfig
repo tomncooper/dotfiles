@@ -3,6 +3,8 @@
 	name = Thomas Cooper
 [init]
 	defaultBranch = main
+[clone]
+        defaultRemoteName = upstream
 [diff]
         tool = kdiff3
 [difftool "kdiff3"]

@@ -20,6 +20,7 @@ alias sudo='sudo '
 alias gst='git status -s'
 alias ga='git add'
 alias gc='git commit'
+alias gnb='git checkout -b'
 alias gpumr='git pull upstream main --rebase'
 
 # Notes
@@ -56,6 +57,7 @@ alias kg='k get'
 alias kd='k describe' 
 alias ke='k edit'
 alias mk='minikube'
+alias mkk='minikube kubectl --'
 alias mkpl='mk profile list'
 
 # Fedora
