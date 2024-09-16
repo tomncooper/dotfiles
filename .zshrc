@@ -1,17 +1,3 @@
-if [ -d "/home/linuxbrew" ]
-then
-    ### Config for Homebrew ###
-    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
-    export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
-    export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
-    export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
-    export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
-    export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
-
-    # Add the brew completions to the FPATH before loading oh-my-zsh
-    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
-
 ### Config for OH MY ZSH ###
 
 # Path to the oh-my-zsh installation.
@@ -100,16 +86,12 @@ export PATH=$PATH:$GOPATH/bin
 
 # Kubernetes
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-#PROMPT='$(kube_ps1)'$PROMPT
-RPROMPT='$(kube_ps1)'
 
 # Minikube
 source <(minikube completion zsh)
 
 # Read the local config file -- This is not stored in yadm so use for system specific config
 source $HOME/.zsh_local
-
-export AWS_SDK_LOAD_CONFIG=true
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

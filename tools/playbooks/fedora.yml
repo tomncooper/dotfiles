@@ -57,6 +57,8 @@
         - strawberry
         - zeal
         - gh
+        - podman
+        - kubernetes-client
     - name: Install flatpak packages
       community.general.flatpak:
         name:
