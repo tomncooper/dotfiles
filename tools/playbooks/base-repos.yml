@@ -16,8 +16,15 @@
         gpgkey: https://downloads.1password.com/linux/keys/1password.asc
         gpgcheck: 1
         repo_gpgcheck: 1
-    - name: Add the flathub flatpak repository remote
-      community.general.flatpak_remote:
-        name: flathub
-        state: present
-        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    - name: Add VSCode repository
+      ansible.builtin.yum_repository:
+        name: vscode
+        description: Visual Studio Code
+        baseurl: https://packages.microsoft.com/yumrepos/vscode
+        gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+        enabled: 1
+        gpgcheck: 1
+    - name: Add the bottom (resource monitor) repo
+      community.general.copr:
+        state: enabled
+        name: atim/bottom

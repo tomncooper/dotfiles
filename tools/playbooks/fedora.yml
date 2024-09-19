@@ -1,4 +1,5 @@
 - import_playbook: base-repos.yml
+- import_playbook: flatpak-base.yml
 - hosts: localhost
   become: true
   tasks:
@@ -8,14 +9,6 @@
         description: Wavebox Repository
         baseurl: https://download.wavebox.app/stable/linux/rpm
         gpgkey: https://download.wavebox.app/static/wavebox_repo.key
-        gpgcheck: 1
-    - name: Add VSCode repository
-      ansible.builtin.yum_repository:
-        name: vscode
-        description: Visual Studio Code
-        baseurl: https://packages.microsoft.com/yumrepos/vscode
-        gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-        enabled: 1
         gpgcheck: 1
     - name: Add the Insync repository
       ansible.builtin.yum_repository:
@@ -44,6 +37,7 @@
         - bat
         - fzf
         - yadm
+        - bottom
         - Wavebox
         - 1password
         - 1password-cli
