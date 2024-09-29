@@ -40,9 +40,7 @@ set $menu $rofi_cmd -show combi -show-icons -modes combi -combi-modes 'window,dr
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# Requires: desktop-backgrounds-compat, swaybg
-output * bg /usr/share/backgrounds/default.png fill
+output * bg #073642 solid_color
 #
 # Example configuration:
 #
@@ -57,9 +55,9 @@ output * bg /usr/share/backgrounds/default.png fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock -f --config $HOME/.config/swaylock/config' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock -f --config $HOME/.config/swaylock/config'
 
 ### Input configuration
 #
@@ -86,7 +84,7 @@ exec swayidle -w \
     bindsym $mod+Shift+q kill
 
     # Lock Screen
-    bindsym $mod+Shift+z exec 'swaylock -f -c 000000'
+    bindsym $mod+Shift+z exec 'swaylock -f --config $HOME/.config/swaylock/config'
 
     # Start your launcher
     bindsym $mod+d exec $menu
