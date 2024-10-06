@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     min-height: 0;
 }
 
@@ -12,8 +12,8 @@ window#waybar {
 }
 
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
+  background: #073642;
+  border: 1px solid #fdf6e3;
 }
 
 tooltip label {
@@ -24,12 +24,12 @@ tooltip label {
     padding: 0 5px;
     background: #073642;
     color: #fdf6e3;
-    border-bottom: 3px solid transparent;
+    border-bottom: 4px solid transparent;
 }
 
 #workspaces button.focused {
-    background: #839496;
-    border-bottom: 3px solid #fdf6e3;
+    background: #859900;
+    border-bottom: 4px solid #fdf6e3;
 }
 
 #clock {
@@ -37,8 +37,12 @@ tooltip label {
     background-color: transparent;
 }
 
+#battery, #cpu, #memory, #pulseaudio {
+    padding-left: 4px;
+    padding-right: 7px;
+}
+
 #battery {
-    padding: 0 5px;
     background-color: transparent;
     color: #fdf6e3;
 }
@@ -46,6 +50,19 @@ tooltip label {
 #battery.charging {
     color: #fdf6e3;
     background-color:#859900;
+}
+
+
+#pulseaudio {
+    padding-bottom: 4px;
+}
+
+#tray {
+    padding-bottom: 4px;
+}
+
+#network {
+    padding-left: 5px;
 }
 
 @keyframes blink {
@@ -63,8 +80,4 @@ tooltip label {
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-
-#network {
-    padding-left: 5px;
 }

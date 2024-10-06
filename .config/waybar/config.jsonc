@@ -80,11 +80,11 @@
         ],
         "modules-right": [
             "pulseaudio",
-            "power-profiles-daemon",
+            //"power-profiles-daemon",
             "cpu",
             "memory",
             "keyboard-state",
-            "sway/language",
+            //"sway/language",
             "battery",
             "battery#bat2",
             "tray"

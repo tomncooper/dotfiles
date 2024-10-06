@@ -53,6 +53,7 @@
         - gh
         - podman
         - kubernetes-client
+        - fontawesome-fonts-all
     - name: Install flatpak packages
       community.general.flatpak:
         name:
