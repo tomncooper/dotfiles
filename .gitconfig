@@ -1,5 +1,5 @@
 [user]
-	email = tom.cooper@reddit.com
+	email = code@tomcooper.dev
 	name = Thomas Cooper
 [init]
 	defaultBranch = main
@@ -22,7 +22,5 @@
         keepTemporaries = false
 [mergetool "kdiff3"]
         path = /usr/bin/kdiff3
-[url "git@github.snooguts.net:"]
-	insteadOf = https://github.snooguts.net/
 [safe]
 	directory = /drone/src
