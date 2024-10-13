@@ -7,6 +7,7 @@ set encoding=utf-8
 
 " Set ALE to provide completion - This has to be set before ALE loads
 let g:ale_completion_enabled = 1
+let g:ale_python_auto_poetry = 1
 
 " Load vim plug if it is not already there
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -25,7 +26,7 @@ call plug#begin('~/.vim/plugged')
 
 "Add custom plugins here
 Plug 'vim-airline/vim-airline'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
