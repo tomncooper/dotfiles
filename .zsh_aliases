@@ -57,13 +57,14 @@ alias kgj='k get -o json'
 alias kgy='k get -o yaml' 
 alias kd='k describe' 
 alias ke='k edit'
+alias kdel="k delete"
 alias mk='minikube'
 alias mkk='minikube kubectl --'
 alias mkpl='mk profile list'
 
 # Fedora
 alias dupg='sudo dnf update'
-alias doud='sudo dnf offline-upgrade download'
-alias dour='sudo dnf offline-upgrade reboot'
+alias doud='sudo dnf offline-upgrade download -y'
+alias dour='sudo dnf offline-upgrade reboot -y'
 alias din='sudo dnf install'
 
