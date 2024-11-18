@@ -90,6 +90,10 @@ export PATH=$PATH:$GOPATH/bin
 # Minikube
 source <(minikube completion zsh)
 
+# FZF
+source <(fzf --zsh)
+source $HOME/tools/fzf-git.sh
+
 # Read the local config file -- This is not stored in yadm so use for system specific config
 source $HOME/.zsh_local
 
