@@ -33,6 +33,8 @@
         - zsh
         - zsh-syntax-highlighting
         - vim
+        - gvim
+        - xclip
         - eza
         - bat
         - fzf
