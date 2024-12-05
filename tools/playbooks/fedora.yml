@@ -14,7 +14,7 @@
       ansible.builtin.yum_repository:
         name: insync
         description: Insync Repository
-        baseurl: http://yum.insync.io/fedora/$releasever/
+        baseurl: http://yum.insync.io/fedora/40/
         gpgkey: https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
         gpgcheck: 1
         enabled: 1
