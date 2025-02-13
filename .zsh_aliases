@@ -38,6 +38,9 @@ alias pipython="poetry run ipython --profile=tom"
 alias pitpython="poetry run ptipython --vi"
 alias pvim="poetry run vim"
 
+# java
+alias j!=jbang
+
 # Use a better version of cat command
 alias cat="bat"
 
@@ -45,9 +48,6 @@ alias cat="bat"
 alias ll="eza --long --header"
 alias la="eza --long --header --all"
 alias tree="eza --tree"
-
-# Weather app
-alias weather="curl http://wttr.in"
 
 # Kubernetes
 alias k='kubectl'

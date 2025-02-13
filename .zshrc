@@ -93,7 +93,10 @@ source <(minikube completion zsh)
 # FZF
 source <(fzf --zsh)
 source $HOME/tools/fzf-git.sh
-export FZF_ALT_C_OPTS="--walker-skip .git,.m2,.cache,.config,.npm"
+export FZF_ALT_C_OPTS="--walker-skip .git,.m2,.cache,.config,.npm,.kube,.local,.minikube"
+
+# Add JBang to environment
+export PATH="$HOME/.jbang/bin:$PATH"
 
 # Read the local config file -- This is not stored in yadm so use for system specific config
 source $HOME/.zsh_local
@@ -101,3 +104,4 @@ source $HOME/.zsh_local
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
