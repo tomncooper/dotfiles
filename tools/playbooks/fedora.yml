@@ -32,6 +32,7 @@
       with_items:
         - zsh
         - zsh-syntax-highlighting
+        - ghostty
         - vim
         - gvim
         - xclip
