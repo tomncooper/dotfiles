@@ -29,7 +29,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-prompt history-substring-search kube-ps1 zsh-syntax-highlighting)
+plugins=(git-prompt history-substring-search zsh-syntax-highlighting)
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -94,9 +94,6 @@ source <(minikube completion zsh)
 source <(fzf --zsh)
 source $HOME/tools/fzf-git.sh
 export FZF_ALT_C_OPTS="--walker-skip .git,.m2,.cache,.config,.npm,.kube,.local,.minikube"
-
-# Add JBang to environment
-export PATH="$HOME/.jbang/bin:$PATH"
 
 # Read the local config file -- This is not stored in yadm so use for system specific config
 source $HOME/.zsh_local
