@@ -7,7 +7,7 @@ alias reboot='sudo reboot'
 # Vim
 alias v='vim'
 
-# Keyboard layouts]
+# Keyboard layouts (XOrg)
 alias kbgb='setxkbmap -layout gb'
 alias kbus='setxkbmap -layout us'
 alias capbk='xmodmap -e "clear lock" && xmodmap -e "keysym Caps_Lock = BackSpace"'
@@ -21,6 +21,10 @@ alias ga='git add'
 alias gc='git commit'
 alias gnb='git checkout -b'
 alias gpumr='git pull upstream main --rebase'
+
+# YADM
+alias yst='yadm status -s'
+alias yup='yadm diff --name-only --diff-filter=ACM | xargs yadm add'
 
 # Notes
 export NOTES=$HOME/Documents/Notes
