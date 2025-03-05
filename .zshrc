@@ -70,6 +70,9 @@ export VISUAL=vim
 export EDITOR=vim
 export BROWSER=firefox
 
+# Set the default wallpaper directory
+export WALLPAPERS=$HOME/SynologyDrive/Photos/Wallpaper/
+
 # Add user binaries to the path
 export PATH=$PATH:$HOME/bin
 

@@ -178,8 +178,7 @@ client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 
 # Start up programs
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id feh --randomize --bg-fill $HOME/Insync/tom.n.cooper@gmail.com/Google\ Drive/Photos/Wallpaper/*
-#exec_always --no-startup-id rescuetime
+exec_always --no-startup-id feh --randomize --bg-fill $HOME/SynologyDrive/Photos/Wallpaper/*
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id lxpolkit

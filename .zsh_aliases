@@ -49,8 +49,8 @@ alias j!=jbang
 alias cat="bat"
 
 # Use a better version of ls and tree
-alias ll="eza --long --header"
-alias la="eza --long --header --all"
+alias ll="eza --long --header --icons=always --group-directories-first"
+alias la="ll --all"
 alias tree="eza --tree"
 
 # Kubernetes
