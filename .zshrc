@@ -96,7 +96,7 @@ source <(minikube completion zsh)
 # FZF
 source <(fzf --zsh)
 source $HOME/tools/fzf-git.sh
-export FZF_ALT_C_OPTS="--walker-skip .git,.m2,.cache,.config,.npm,.kube,.local,.minikube"
+export FZF_ALT_C_OPTS="--walker=file,dir,follow --walker-skip=Games"
 
 # Read the local config file -- This is not stored in yadm so use for system specific config
 source $HOME/.zsh_local

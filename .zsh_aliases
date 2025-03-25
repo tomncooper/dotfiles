@@ -19,8 +19,10 @@ alias sudo='sudo '
 alias gst='git status -s'
 alias ga='git add'
 alias gc='git commit'
+alias gco='git checkout'
 alias gnb='git checkout -b'
 alias gpumr='git pull upstream main --rebase'
+alias gpumar='git pull upstream master --rebase'
 
 # YADM
 alias yst='yadm status -s'
@@ -71,4 +73,7 @@ alias dupg='sudo dnf update'
 alias doud='sudo dnf offline-upgrade download -y'
 alias dour='sudo dnf offline-upgrade reboot -y'
 alias din='sudo dnf install'
+
+# Useful one liners
+alias timeuntil='function _timeuntil() { target="$1 $2"; seconds=$(($(date -d "$target" +%s) - $(date +%s))); if [ $seconds -lt 0 ]; then echo "Date has passed"; else printf "%d days, %d hours, %d minutes, %d seconds\n" $((seconds/86400)) $((seconds%86400/3600)) $((seconds%3600/60)) $((seconds%60)); fi }; _timeuntil' 
 
