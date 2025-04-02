@@ -183,5 +183,6 @@ exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id lxpolkit
 exec --no-startup-id insync start
+exec --no-startup-id flatpak run com.synology.SynologyDrive
 exec --no-startup-id pasystray --key-grabbing
 exec --no-startup-id copyq --start-server
