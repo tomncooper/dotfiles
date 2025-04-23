@@ -40,7 +40,7 @@ alias perp="poetry run python"
 alias pin="poetry install"
 alias padd="poetry add"
 alias pupg="poetry update"
-alias pipython="poetry run ipython --profile=tom"
+alias pipython="poetry run ipython --profile=tnc"
 alias pitpython="poetry run ptipython --vi"
 alias pvim="poetry run vim"
 
@@ -54,6 +54,9 @@ alias cat="bat"
 alias ll="eza --long --header --icons=always --group-directories-first"
 alias la="ll --all"
 alias tree="eza --tree"
+
+# Use a better top
+alias top="btm --expanded"
 
 # Kubernetes
 alias k='kubectl'
