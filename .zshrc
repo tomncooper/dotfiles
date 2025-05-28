@@ -98,6 +98,13 @@ source <(fzf --zsh)
 source $HOME/tools/fzf-git.sh
 export FZF_ALT_C_OPTS="--walker=file,dir,follow --walker-skip=Games"
 
+# Podman 
+# This lets testcontainers run using podman
+export TESTCONTAINERS_RYUK_DISABLED=true
+# This lets the fabric8 docker plugin build using podman
+#export DOCKER_HOST="unix:/run/user/$(id -u)/podman/podman.sock"
+export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+
 # Read the local config file -- This is not stored in yadm so use for system specific config
 source $HOME/.zsh_local
 

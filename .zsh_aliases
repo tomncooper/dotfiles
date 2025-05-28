@@ -18,7 +18,7 @@ alias sudo='sudo '
 # Git
 alias gst='git status -s'
 alias ga='git add'
-alias gc='git commit'
+alias gc='git commit -s -m'
 alias gco='git checkout'
 alias gnb='git checkout -b'
 alias gpumr='git pull upstream main --rebase'
