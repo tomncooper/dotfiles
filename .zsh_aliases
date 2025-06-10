@@ -60,13 +60,21 @@ alias top="btm --expanded"
 
 # Kubernetes
 alias k='kubectl'
+alias kn='k -n'
 alias kl='k logs'
+alias kln='kl -n'
 alias kg='k get' 
+alias kgn='kg -n' 
 alias kgj='k get -o json' 
+alias kgjn='kgj -n'  
 alias kgy='k get -o yaml' 
+alias kgyn='kgy -n' 
 alias kd='k describe' 
+alias kdn='kd -n' 
 alias ke='k edit'
+alias ken='ke -n'
 alias kdel="k delete"
+alias kdeln="kdel -n"
 alias mk='minikube'
 alias mkk='minikube kubectl --'
 alias mkpl='mk profile list'

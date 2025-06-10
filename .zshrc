@@ -82,6 +82,7 @@ export PATH=$PATH:$KAFKA_HOME/bin
 
 # Add PIP installed binaries to the path
 export PATH=$PATH:$HOME/.local/bin
+export PYENVS=$HOME/.pyenvs
 
 # GO variables
 export GOPATH=$HOME/repos/go
