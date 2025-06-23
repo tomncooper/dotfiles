@@ -109,6 +109,9 @@ export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
 # Read the local config file -- This is not stored in yadm so use for system specific config
 source $HOME/.zsh_local
 
+# Load Startship prompt - configured via $HOME/.config/starship.toml
+eval "$(starship init zsh)"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
