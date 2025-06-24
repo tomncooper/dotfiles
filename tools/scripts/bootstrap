@@ -18,12 +18,8 @@ touch .zsh_local
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # Copy the solarized theme to to the vim folder
-mkdir -p $HOME/.vim/colors
-wget https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim -P $HOME/.vim/colors
-
-# Add the zsh-syntax highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+mkdir -p "$HOME/.vim/colors"
+wget https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim -P "$HOME/.vim/colors"
 
 # Install starship prompts
 curl -sS https://starship.rs/install.sh | sh
