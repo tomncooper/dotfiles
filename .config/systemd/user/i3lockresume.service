@@ -1,0 +1,11 @@
+[Unit]
+Description=Lock screen on resume
+After=suspend.target hibernate.target
+
+[Service]
+Type=forking
+ExecStart=%h/tools/scripts/i3lock.sh
+ExecStartPost=/usr/bin/sleep 1
+
+[Install]
+WantedBy=suspend.target hibernate.target

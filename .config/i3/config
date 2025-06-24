@@ -152,7 +152,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #Add in a lock shortcut
-bindsym $mod+Shift+z exec "i3lock -c 000000"
+bindsym $mod+Shift+z exec $HOME/tools/scripts/i3lock.sh
 
 #Stop the mouse switching focus to other windows
 focus_follows_mouse no
@@ -179,6 +179,7 @@ client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 # Start up programs
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --randomize --bg-fill $HOME/SynologyDrive/Photos/Wallpaper/*
+exec xautolock -time 10 -locker $HOME/tools/scripts/i3lock.sh
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id lxpolkit
