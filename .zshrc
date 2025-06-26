@@ -26,6 +26,8 @@ unsetopt correct_all
 
 # Use Vim keybindings
 bindkey -v
+autoload edit-command-line
+zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # Set the keys for the substring search
