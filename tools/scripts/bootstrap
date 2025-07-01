@@ -35,3 +35,8 @@ curl -s https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh -o
 
 # Install Hack Nerd Font
 ./tools/scripts/hack-nerd-font.sh
+
+# Allow docker compatibility with podman
+dnf install podman
+systemctl --user enable podman.socket
+
