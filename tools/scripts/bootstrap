@@ -14,9 +14,6 @@ dnf install 'dnf-command(offline-upgrade)'
 # Make sure the local config file is there
 touch .zsh_local
 
-# Install oh my zsh
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-
 # Copy the solarized theme to to the vim folder
 mkdir -p "$HOME/.vim/colors"
 wget https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim -P "$HOME/.vim/colors"
