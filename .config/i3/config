@@ -31,7 +31,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec ghostty
+#bindsym $mod+Return exec ghostty
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -179,7 +180,7 @@ client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 # Start up programs
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --randomize --bg-fill $HOME/SynologyDrive/Photos/Wallpaper/*
-exec xautolock -time 10 -locker $HOME/tools/scripts/i3lock.sh
+exec --no-startup-id xscreensaver
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id lxpolkit
