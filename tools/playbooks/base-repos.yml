@@ -5,8 +5,8 @@
       ansible.builtin.yum_repository:
         name: yadm
         description: YADM Repository
-        baseurl: https://download.opensuse.org/repositories/home:/TheLocehiliosan:/yadm/Fedora_41/
-        gpgkey: https://download.opensuse.org/repositories/home:/TheLocehiliosan:/yadm/Fedora_41/repodata/repomd.xml.key
+        baseurl: https://download.opensuse.org/repositories/home:/TheLocehiliosan:/yadm/Fedora_42/
+        gpgkey: https://download.opensuse.org/repositories/home:/TheLocehiliosan:/yadm/Fedora_42/repodata/repomd.xml.key
         gpgcheck: 1
         enabled: 1
     - name: Add 1Password repository
