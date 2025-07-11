@@ -7,6 +7,7 @@
       dnf: name={{item}}
       with_items:
         - arandr
+        - lxinput
         - lxpolkit
         - pasystray
         - feh
@@ -18,3 +19,4 @@
         - polybar
         - light
         - playerctl
+        - xscreensaver
