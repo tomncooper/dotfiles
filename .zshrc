@@ -1,8 +1,12 @@
 # Load Plugins
 source $HOME/tools/scripts/zsh_plugins.sh
 
+# Configure Plugins
 autoload -Uz compinit 
 compinit
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
+
+# ZSH Configuration
 
 COMPLETION_WAITING_DOTS="true"
 
