@@ -24,7 +24,7 @@ style = 'bold green'
 aliases = { "li-02f403cc-2d94-11b2-a85c-a8e0a2bff2c0" = "ibm-laptop" }
 
 [directory]
-diabled = false
+disabled = false
 style = 'cyan bold'
 
 [git_branch]
