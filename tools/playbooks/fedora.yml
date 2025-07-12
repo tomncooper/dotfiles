@@ -66,3 +66,5 @@
           - com.plexamp.Plexamp
           - com.synology.SynologyDrive
           - ch.protonmail.protonmail-bridge
+          - me.proton.Pass 
+          - com.protonvpn.www
