@@ -2,7 +2,7 @@
 [
     {
         "position": "top", // Waybar position (top|bottom|left|right)
-        "height": 25, // Waybar height (to be removed for auto height)
+        "height": 28, // Waybar height (to be removed for auto height)
         "modules-right": [
             "mpd",
             "clock#ny",
@@ -144,7 +144,7 @@
             },
             "format": "{capacity}% {icon}",
             "format-full": "{capacity}% {icon}",
-            "format-charging": "{capacity}% ",
+            "format-charging": "{capacity}% ▲",
             "format-plugged": "{capacity}% ",
             "format-alt": "{time} {icon}",
             // "format-good": "", // An empty format will hide the module
