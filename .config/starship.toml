@@ -4,6 +4,8 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
+palette = "solarized"
+
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
@@ -20,3 +22,45 @@ disabled = false
 ssh_only = false
 style = 'bold green'
 aliases = { "li-02f403cc-2d94-11b2-a85c-a8e0a2bff2c0" = "ibm-laptop" }
+
+[directory]
+diabled = false
+style = 'cyan bold'
+
+[git_branch]
+disabled = false
+style = 'magenta bold'
+
+[sudo]
+disabled = false
+
+[java]
+disabled = false
+format = 'using [${symbol}(${version} )]($style)'
+style = 'violet'
+
+[python]
+disabled = false
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style)'
+style = 'violet'
+
+[golang]
+disabled = false
+format = 'using [${symbol}(${version} )]($style)'
+style = 'violet'
+
+[package]
+disabled = false
+format = 'at [$symbol$version]($style) '
+style = 'orange'
+
+[palettes.solarized]
+green = "64"
+white = "230"
+blue = "33"
+cyan = "37"
+red = "160"
+magenta = "125"
+violet = "61"
+yellow = "136"
+orange = "166"
