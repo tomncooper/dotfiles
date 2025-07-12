@@ -49,19 +49,19 @@
             "tooltip-format-disconnected": "MPD (disconnected)"
         },
         "clock": {
-            "format": "{:%A %e %B %Y | %H:%M}",
+            "format": "{:%A %e %B %Y | %H:%M} ",
             "timezone": "Europe/London"
         },
         "clock#utc": {
-            "format": "UTC | {:%H:%M}",
+            "format": "UTC {:%H:%M} |",
             "timezone": "Etc/UTC"
         },
         "clock#nz": {
-            "format": "NZ | {:%H:%M}",
+            "format": "NZ {:%H:%M} |",
             "timezone": "Pacific/Auckland"
         },
         "clock#ny": {
-            "format": "NY | {:%H:%M}",
+            "format": "NY {:%H:%M} |",
             "timezone": "America/New_York"
         }
     },
