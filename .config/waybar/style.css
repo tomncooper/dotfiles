@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-family: HackNerdFont, Arial, sans-serif;
+    font-size: 16px;
     min-height: 0;
 }
 
@@ -54,10 +54,11 @@ tooltip label {
 
 
 #pulseaudio {
-    padding-bottom: 4px;
+    padding-bottom: 0px;
 }
 
 #tray {
+    padding-left: 15px;
     padding-bottom: 4px;
 }
 
