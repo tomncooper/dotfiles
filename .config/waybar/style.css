@@ -65,6 +65,7 @@ tooltip label {
 
 #network {
     padding-left: 10px;
+    padding-right: 15px;
 }
 
 @keyframes blink {

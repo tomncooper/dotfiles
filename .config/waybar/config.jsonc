@@ -4,49 +4,39 @@
         "position": "top", // Waybar position (top|bottom|left|right)
         "height": 28, // Waybar height (to be removed for auto height)
         "modules-right": [
-            "mpd",
             "clock#ny",
             "clock#utc",
             "clock#nz",
             "clock"
         ],
         "modules-left": [
-            "network"
+            "network",
+            "mpris"
         ],
         "network": {
             // "interface": "wlp2*", // (Optional) To force the use of this interface
             "format-wifi": "{essid} ({signalStrength}%) ",
-            "format-ethernet": "{ipaddr}/{cidr} ",
-            "tooltip-format": "{ifname} via {gwaddr} ",
-            "format-linked": "{ifname} (No IP) ",
+            "format-ethernet": "{ipaddr}/{cidr}",
+            "tooltip-format": "{ifname} via {gwaddr}",
+            "format-linked": "{ifname} (No IP)",
             "format-disconnected": "Disconnected ⚠",
             "format-alt": "{ifname}: {ipaddr}/{cidr}"
         },
-        "mpd": {
-            "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-            "format-disconnected": "Disconnected ",
-            "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-            "unknown-tag": "N/A",
-            "interval": 5,
-            "consume-icons": {
-                "on": " "
+        "mpris": {
+            "format": "| {player_icon} {status_icon} {dynamic} ",
+            "format-paused": "| {player_icon} {status_icon} <i>{dynamic}</i> ",
+            "dynamic-order": ["title", "artist"],
+            "player-icons": {
+                    "default": "▶",
+                    "mpv": "🎵",
+                    "firefox": "🦊",
+                    "strawberry": "🍓"
             },
-            "random-icons": {
-                "off": "<span color=\"#f53c3c\"></span> ",
-                "on": " "
-            },
-            "repeat-icons": {
-                "on": " "
-            },
-            "single-icons": {
-                "on": "1 "
-            },
-            "state-icons": {
-                "paused": "",
-                "playing": ""
-            },
-            "tooltip-format": "MPD (connected)",
-            "tooltip-format-disconnected": "MPD (disconnected)"
+            "status-icons": {
+                    "playing": "▶",
+                    "paused": "⏸",
+                    "stopped": "⏹" 
+            }
         },
         "clock": {
             "format": "{:%A %e %B %Y | %H:%M} ",
