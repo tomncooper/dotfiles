@@ -60,9 +60,9 @@
     - name: Install flatpak packages
       community.general.flatpak:
         name:
+          - com.github.tchx84.Flatseal
           - md.obsidian.Obsidian
           - org.zotero.Zotero
-          - com.makemkv.MakeMKV
           - com.plexamp.Plexamp
           - com.synology.SynologyDrive
           - ch.protonmail.protonmail-bridge
