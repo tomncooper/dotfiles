@@ -1,0 +1,9 @@
+profile ncl_office {
+    output eDP-1 disable
+    output "AOC U27B3A ZXLQ5HA005092" scale 2
+}
+
+profile ibm_thinkpad {
+    output "Lenovo Group Limited 0x41B5 Unknown" enable
+}
+

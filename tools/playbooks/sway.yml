@@ -1,0 +1,17 @@
+---
+- import_playbook: fedora.yml
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Install native packages
+      dnf: name={{item}}
+      with_items:
+        - waybar
+        - kanshi
+        - lxinput
+        - lxpolkit
+        - pasystray
+        - copyq
+        - ranger
+        - rofi-wayland
+        - playerctl

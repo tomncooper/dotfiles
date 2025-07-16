@@ -57,9 +57,9 @@ output * bg #073642 solid_color
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec swayidle -w \
-         timeout 300 'swaylock -f --config $HOME/.config/swaylock/config' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f --config $HOME/.config/swaylock/config'
+    timeout 300 'swaylock -f --config $HOME/.config/swaylock/config' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f --config $HOME/.config/swaylock/config'
 
 ### Input configuration
 #
@@ -217,8 +217,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Kill CAPS LOCK with fire and make it do something useful
+# Allow cycling trhough leyboard layouts with right ctrl
 input "type:keyboard" {
-    xkb_options caps:backspace
+    xkb_layout gb,us
+    xkb_options caps:backspace,grp:rctrl_toggle
 }
 
 #set $wallpaper exec echo $(find "$HOME/Insync/tom.n.cooper@gmail.com/Google Drive/Photos/Wallpaper" -type f | shuf -n 1 --random-source=/dev/random)
@@ -246,3 +248,13 @@ input "type:keyboard" {
 # the trick, it's all in the `wordexp(3)`.
 #
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+
+exec waybar
+exec kanshi
+exec dunst
+exec nm-applet
+exec lxpolkit
+exec insync start
+exec flatpak run com.synology.SynologyDrive
+exec pasystray --key-grabbing
+exec copyq --start-server
