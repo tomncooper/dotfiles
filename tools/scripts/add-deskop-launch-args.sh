@@ -33,7 +33,7 @@ if grep -qE "Exec=.*${ESCAPED_STRING}.*" "$DESKTOP_FILE"; then
 fi
 
 # Use sed to modify the Exec line in the .desktop file
-sed -i.bak -E "s|^(Exec=[^ ]+)(.*%U)|\1 $STRING_TO_ADD\2|" "$DESKTOP_FILE"
+sed -i.bak -E "s|^(Exec=[^ ]+)(.*%[UF])|\1 $STRING_TO_ADD\2|" "$DESKTOP_FILE"
 
 if [ $? -eq 0 ]; then
     echo "Successfully updated the Exec command in $DESKTOP_FILE."
