@@ -36,7 +36,6 @@ set $term ghostty
 set $rofi_cmd rofi -terminal '$term'
 # Shows a combined list of the applications with desktop files and
 # executables from PATH.
-# TODO: add window with the next release of rofi-wayland
 set $menu $rofi_cmd -show combi -show-icons -modes combi -combi-modes 'window,drun,run' -theme solarized_alternate -theme-str 'element-icon {size: 1.65ch ; } element {spacing: 20px;}'
 
 ### Output configuration
@@ -238,14 +237,17 @@ input "type:keyboard" {
 # important to make the magic work. And if you want to learn the secret behind
 # the trick, it's all in the `wordexp(3)`.
 #
+include /etc/sway/config.d/*
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
-exec waybar
-exec kanshi
+exec_always systemctl --user start sway-session.target
+exec_always systemctl --user start kanshi.service
+exec_always pkill waybar; exec waybar &
 exec dunst
 exec nm-applet
 exec lxpolkit
 exec insync start
 exec flatpak run com.synology.SynologyDrive
+exec flatpak run ch.protonmail.protonmail-bridge --noninteractive
 exec pasystray --key-grabbing
 exec copyq --start-server

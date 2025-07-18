@@ -1,6 +1,11 @@
 profile ncl_office {
-    output eDP-1 disable
+    output "Lenovo Group Limited 0x41B5 Unknown" disable
     output "AOC U27B3A ZXLQ5HA005092" scale 2
+}
+
+profile home_office {
+    output "Lenovo Group Limited 0x41B5 Unknown" disable
+    output "Samsung Electric Company LU28R55 HNMNA03152" scale 2
 }
 
 profile ibm_thinkpad {
