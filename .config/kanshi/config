@@ -3,7 +3,7 @@ profile ncl_office {
     output "AOC U27B3A ZXLQ5HA005092" scale 2
 }
 
-profile home_office {
+profile home_office_ibm_thinkpad {
     output "Lenovo Group Limited 0x41B5 Unknown" disable
     output "Samsung Electric Company LU28R55 HNMNA03152" scale 2
 }
@@ -12,3 +12,11 @@ profile ibm_thinkpad {
     output "Lenovo Group Limited 0x41B5 Unknown" enable
 }
 
+profile ggpro {
+    output "LG Display 0x0545 Unknown" enable
+}
+
+profile home_office_ggrpo {
+    output "LG Display 0x0545 Unknown" disable
+    output "Samsung Electric Company LU28R55 HNMNA03152" scale 2
+}
