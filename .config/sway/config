@@ -248,6 +248,6 @@ exec nm-applet
 exec lxpolkit
 exec insync start
 exec flatpak run com.synology.SynologyDrive
-exec flatpak run ch.protonmail.protonmail-bridge --noninteractive
+exec flatpak run ch.protonmail.protonmail-bridge
 exec pasystray --key-grabbing
 exec copyq --start-server
