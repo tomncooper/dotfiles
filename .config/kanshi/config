@@ -3,7 +3,7 @@ output "LG Display 0x0545 Unknown" {
 }
 
 output "Lenovo Group Limited 0x41B5 Unknown" {
-    mode 1900x1200
+    mode 1920x1200@60.002Hz
     scale 1.5
     alias $IBM_THINKPAD
 }
@@ -14,6 +14,7 @@ output "Samsung Electric Company LU28R55 HNMNA03152" {
 }
 
 output "AOC U27B3A ZXLQ5HA005092" {
+    mode 3840x2160@30.000Hz 
     scale 2
     alias $NCL_OFFICE_DESK
 }
