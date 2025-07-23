@@ -27,9 +27,13 @@ alias gnb='git checkout -b'
 alias gpumr='git pull upstream main --rebase'
 alias gpumar='git pull upstream master --rebase'
 
+# Github CLIgh copilot suggest
+alias ghcs='gh copilot suggest'
+
 # YADM
 alias yst='yadm status -s'
 alias yup='yadm diff --name-only --diff-filter=ACM | xargs yadm add'
+alias yc='yadm commit -m'
 
 # Notes
 export NOTES=$HOME/Documents/Notes
