@@ -5,6 +5,8 @@ source $HOME/tools/scripts/zsh_plugins.sh
 autoload -Uz compinit 
 compinit
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 # ZSH Configuration
 
