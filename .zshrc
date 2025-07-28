@@ -88,7 +88,7 @@ source <(minikube completion zsh)
 
 # FZF
 source <(fzf --zsh)
-source $HOME/tools/fzf-git.sh
+source $HOME/tools/scripts/fzf-git.sh
 export FZF_ALT_C_OPTS="--walker=file,dir,follow --walker-skip=Games"
 
 # Podman 
