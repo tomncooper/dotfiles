@@ -24,6 +24,13 @@ output "BNQ BenQ GW2765 H4H09664019" {
     alias $NCL_OFFICE_TURING
 }
 
+output "LG Electronics LG Ultra HD 0x000872C3" {
+    mode 3840x2160@60.000Hz
+    scale 2
+    alias $NCL_OFFICE_BABBAGE
+}
+
+
 profile ggpro {
     output $GGPRO enable
 }
@@ -50,4 +57,9 @@ profile ncl_office_desk {
 profile ncl_office_turing {
     output $IBM_THINKPAD disable
     output $NCL_OFFICE_TURING
+}
+
+profile ncl_office_babbage {
+    output $IBM_THINKPAD disable
+    output $NCL_OFFICE_BABBAGE
 }
