@@ -242,7 +242,7 @@ include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "
 
 exec_always systemctl --user start sway-session.target
 exec_always systemctl --user reload-or-restart kanshi.service
-exec_always systemctl --user start dunst.service
+exec_always systemctl --user reload-or-restart dunst.service
 exec_always pkill waybar; exec waybar &
 exec nm-applet
 exec lxpolkit
