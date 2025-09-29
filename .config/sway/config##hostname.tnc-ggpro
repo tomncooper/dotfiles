@@ -210,10 +210,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Kill CAPS LOCK with fire and make it do something useful
-# Allow cycling trhough leyboard layouts with right ctrl
+# Allow cycling trhough leyboard layouts with right alt
 input "type:keyboard" {
     xkb_layout gb,us
-    xkb_options caps:backspace,grp:rctrl_toggle
+    xkb_options caps:backspace,grp:toggle
 }
 
 # Include configs from 3 locations:
