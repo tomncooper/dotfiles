@@ -30,6 +30,12 @@ output "LG Electronics LG Ultra HD 0x000872C3" {
     alias $NCL_OFFICE_BABBAGE
 }
 
+output "LG Electronics LG Ultra HD 0x000872C4" {
+    mode 3840x2160@60.000Hz
+    scale 2
+    alias $NCL_OFFICE_LOVELACE
+}
+
 
 profile ggpro {
     output $GGPRO enable
@@ -62,4 +68,9 @@ profile ncl_office_turing {
 profile ncl_office_babbage {
     output $IBM_THINKPAD disable
     output $NCL_OFFICE_BABBAGE
+}
+
+profile ncl_office_lovelace {
+    output $IBM_THINKPAD disable
+    output $NCL_OFFICE_LOVELACE
 }
