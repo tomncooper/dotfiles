@@ -39,7 +39,7 @@
             }
         },
         "clock": {
-            "format": "{:%A %e %B %Y | %H:%M} ",
+            "format": "{:%A%e %B %Y | %H:%M} ",
             "timezone": "Europe/London"
         },
         "clock#utc": {
