@@ -36,6 +36,12 @@ output "LG Electronics LG Ultra HD 0x000872C4" {
     alias $NCL_OFFICE_LOVELACE
 }
 
+output "NEC Corporation V654Q 97001896NB" {
+    mode 3840x2160@30.000Hz
+    scale 2
+    alias $NCL_OFFICE_LOVELACE_BIG
+}
+
 
 profile ggpro {
     output $GGPRO enable
@@ -73,4 +79,9 @@ profile ncl_office_babbage {
 profile ncl_office_lovelace {
     output $IBM_THINKPAD disable
     output $NCL_OFFICE_LOVELACE
+}
+
+profile ncl_office_lovelace_big {
+    output $IBM_THINKPAD disable
+    output $NCL_OFFICE_LOVELACE_BIG
 }

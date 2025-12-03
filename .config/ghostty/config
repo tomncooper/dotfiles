@@ -1,3 +1,4 @@
 theme = solarized-dark-patched-tnc
 font-family = Hack Nerd Font Mono
 window-decoration = none
+keybind = shift+enter=text:\x1b\r
