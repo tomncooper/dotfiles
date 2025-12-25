@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Create tools directory if it doesn't exist
+mkdir -p tools
+
+# Install deps 
+sudo dnf install -y wget git ansible 
+
+# Run ansible playbook
+wget -O $HOME/Downloads/base-repos.yml https://github.com/tomncooper/dotfiles/raw/refs/heads/master/tools/playbooks/base-repos.yml
+wget -O $HOME/Downloads/flatpak-base.yml https://github.com/tomncooper/dotfiles/raw/refs/heads/master/tools/playbooks/flatpak-base.yml
+wget -O $HOME/Downloads/fedora.yml https://github.com/tomncooper/dotfiles/raw/refs/heads/master/tools/playbooks/fedora.yml
+sudo ansible-playbook $HOME/Downloads/fedora.yml -K
+
+# Install the offline upgrade plugin for dnf
+if ! dnf list installed 'dnf-command(offline-upgrade)' &>/dev/null; then
+    sudo dnf install -y 'dnf-command(offline-upgrade)'
+fi
+
+# Make sure the local config file is there
+touch .zsh_local
+
+# Copy the solarized theme to to the vim folder
+mkdir -p "$HOME/.vim/colors"
+if [ ! -f "$HOME/.vim/colors/solarized.vim" ]; then
+    wget https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim -P "$HOME/.vim/colors"
+fi
+
+# Install starship prompts
+if ! command -v starship &>/dev/null; then
+    curl -sS https://starship.rs/install.sh | sh -s -- -y
+fi
+
+# Install SDK man 
+if [ ! -d "$HOME/.sdkman" ]; then
+    curl -s "https://get.sdkman.io" | bash
+fi
+
+# Pull fzf-git
+if [ ! -f "tools/fzf-git.sh" ]; then
+    curl -s https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh -o tools/fzf-git.sh
+fi
+
+# Install Hack Nerd Font
+if [ -x "./tools/scripts/hack-nerd-font.sh" ] && ! fc-list | grep -qi "Hack Nerd Font"; then
+    ./tools/scripts/hack-nerd-font.sh
+fi
+
+# Allow docker compatibility with podman
+if ! systemctl --user is-enabled podman.socket &>/dev/null; then
+    systemctl --user enable podman.socket
+fi
+
+# Make ZSH the default 
+if [ "$SHELL" != "$(which zsh)" ]; then
+    chsh -s "$(which zsh)"
+fi
