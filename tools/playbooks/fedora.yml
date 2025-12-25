@@ -10,14 +10,6 @@
         baseurl: https://download.wavebox.app/stable/linux/rpm
         gpgkey: https://download.wavebox.app/static/wavebox_repo.key
         gpgcheck: 1
-    - name: Add the Insync repository
-      ansible.builtin.yum_repository:
-        name: insync
-        description: Insync Repository
-        baseurl: http://yum.insync.io/fedora/40/
-        gpgkey: https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
-        gpgcheck: 1
-        enabled: 1
     - name: Add the GitHub CLI repository
       ansible.builtin.yum_repository:
         name: github-cli
@@ -44,10 +36,8 @@
         - 1password
         - 1password-cli
         - code
-        - insync
-        - kdiff3
+        - uv
         - ipython
-        - python-poetry
         - flac
         - k3b
         - strawberry
