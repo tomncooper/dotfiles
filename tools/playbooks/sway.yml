@@ -8,9 +8,9 @@
       with_items:
         - waybar
         - kanshi
-        - lxinput
-        - lxpolkit
-        - pasystray
+        #- lxinput
+        #- lxpolkit
+        #- pasystray
         - copyq
         - ranger
         - rofi-wayland
