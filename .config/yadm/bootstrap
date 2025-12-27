@@ -46,3 +46,8 @@ fi
 if [ "$SHELL" != "$(which zsh)" ]; then
     chsh -s "$(which zsh)"
 fi
+
+# Set the font on the virtual console to be readable on higher res screens
+sudo grubby --update-kernel=ALL --args=vconsole.font=latarcyrheb-sun32
+
+echo "Please reboot for changes to take effect"
