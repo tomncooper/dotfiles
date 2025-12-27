@@ -3,15 +3,6 @@
 # Create tools directory if it doesn't exist
 mkdir -p tools
 
-# Install deps 
-sudo dnf install -y wget git ansible 
-
-# Run ansible playbook
-wget -O $HOME/Downloads/base-repos.yml https://github.com/tomncooper/dotfiles/raw/refs/heads/master/tools/playbooks/base-repos.yml
-wget -O $HOME/Downloads/flatpak-base.yml https://github.com/tomncooper/dotfiles/raw/refs/heads/master/tools/playbooks/flatpak-base.yml
-wget -O $HOME/Downloads/fedora.yml https://github.com/tomncooper/dotfiles/raw/refs/heads/master/tools/playbooks/fedora.yml
-sudo ansible-playbook $HOME/Downloads/fedora.yml -K
-
 # Install the offline upgrade plugin for dnf
 if ! dnf list installed 'dnf-command(offline-upgrade)' &>/dev/null; then
     sudo dnf install -y 'dnf-command(offline-upgrade)'
