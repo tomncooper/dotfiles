@@ -2,6 +2,10 @@ output "LG Display 0x0545 Unknown" {
     alias $GGPRO
 }
 
+output "BOE NE135A1M-NY1 Unknown" {
+    alias $FRAMEWORK
+}
+
 output "Lenovo Group Limited 0x41B5 Unknown" {
     mode 1920x1200@60.002Hz
     scale 1.5
@@ -51,6 +55,12 @@ profile home_office_ggpro {
     output $GGPRO disable
     output $HOME_DESK enable
 }
+
+profile home_office_ggpro {
+    output $FRAMEWORK disable
+    output $HOME_DESK enable
+}
+
 
 profile ibm_thinkpad {
     output $IBM_THINKPAD enable
