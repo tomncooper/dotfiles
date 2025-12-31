@@ -1,3 +1,2 @@
 exec flatpak run com.synology.SynologyDrive
 exec copyq --start-server
-exec pasystray --key-grabbing
