@@ -1,26 +1,24 @@
 [user]
-	email = code@tomcooper.dev
-	name = Thomas Cooper
+    email = code@tomcooper.dev
+    name = Thomas Cooper
+
 [init]
-	defaultBranch = main
+    defaultBranch = main
+
 [clone]
-        defaultRemoteName = upstream
-[diff]
-        tool = kdiff3
-[difftool "kdiff3"]
-        path = /usr/bin/kdiff3
-[difftool]
-        prompt = false
-        keepBackup = false
-        trustExitCode = false
+    defaultRemoteName = upstream
+
+[user]
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIClId7Txxq7LLYxaxC/vXa8kF1jCoqKkHRHlv5eO0XaO
+
+[gpg]
+    format = ssh
+
+[gpg "ssh"]
+    program = "/opt/1Password/op-ssh-sign"
+
+[commit]
+    gpgsign = true
+
 [merge]
-        tool = kdiff3
-        conflictstyle = diff3
-[mergetool]
-        prompt = false
-        keepBackup = false
-        keepTemporaries = false
-[mergetool "kdiff3"]
-        path = /usr/bin/kdiff3
-[safe]
-	directory = /drone/src
+    conflictstyle = diff3
