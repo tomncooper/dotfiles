@@ -42,6 +42,11 @@ if ! systemctl --user is-enabled podman.socket &>/dev/null; then
     systemctl --user enable podman.socket
 fi
 
+# Activate Kanshi screen setup service
+if ! systemctl --user is-enabled kanshi.service &>/dev/null; then
+    systemctl --user enable kanshi.service
+fi
+
 # Make ZSH the default 
 if [ "$SHELL" != "$(which zsh)" ]; then
     chsh -s "$(which zsh)"
