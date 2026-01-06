@@ -1,0 +1,4 @@
+
+[Default Applications]
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
+application/pdf=org.kde.okular.desktop
