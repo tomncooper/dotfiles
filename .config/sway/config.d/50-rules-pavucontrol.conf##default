@@ -1,0 +1,10 @@
+# Stop displaying PulseAudio volume control application (both GTK and Qt varieties) 
+# as a floating window
+
+for_window [app_id="pavucontrol"] {
+    floating disable
+}
+
+for_window [app_id="pavucontrol-qt"] {
+    floating disable
+}
