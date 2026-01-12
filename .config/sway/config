@@ -43,16 +43,7 @@ set $menu $rofi_cmd -show combi -show-icons -modes combi -combi-modes 'window,dr
 #output * bg #073642 solid_color
 output * bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/Wallpaper` fill
 
-### Idle configuration
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-exec swayidle -w \
-    timeout 300 'swaylock -f --config $HOME/.config/swaylock/config' \
-    timeout 600 'systemctl suspend' \
-    after-resume 'swaylock -f --config $HOME/.config/swaylock/config'
+## Swayidle config is in .config/sway/config.d/90-swayidle.conf
 
 ### Input configuration
 #
