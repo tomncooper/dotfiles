@@ -1,10 +1,6 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
+# Tom's Sway Config
 
-# Colour Theme
+# Colour Theme - Solarized Dark
 client.focused          #002b36 #586e75 #fdf6e3 #268bd2
 client.focused_inactive #002b36 #073642 #839496 #073642
 client.unfocused        #002b36 #073642 #839496 #073642
@@ -13,21 +9,21 @@ client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 default_border none 
 
 ### Variables
-#
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
 
+# Font configs
 font pango:DejaVu Sans Mono, Font Awesome Free 10
 
 # Your preferred terminal emulator
-# Recommends: foot
 set $term ghostty
-#set $term konsole
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -40,29 +36,18 @@ set $menu $rofi_cmd -show combi -show-icons -modes combi -combi-modes 'window,dr
 
 ### Output configuration
 
-#output * bg #073642 solid_color
-output * bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/Wallpaper` fill
+# Choose a random background wall paper of fallback to the specified colour
+output * bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/Wallpaper` fill #075466
 
-## Swayidle config is in .config/sway/config.d/90-swayidle.conf
+## Swayidle 
 
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+# The swayidle config is in .config/sway/config.d/90-swayidle.conf in order to override
+# the fedora sway defaults in /usr/share/sway/config.d
 
 ### Key bindings
-#
+
 # Basics:
-#
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -87,9 +72,12 @@ output * bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
+
+    # Launch gVim and copy what you write to the clipboard
+    bindsym $mod+x exec $HOME/tools/scripts/vim-everywhere.sh
+
 # Moving around:
-#
+
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -111,9 +99,9 @@ output * bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
+
 # Workspaces:
-#
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -138,9 +126,9 @@ output * bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-#
+
 # Layout stuff:
-#
+
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -163,9 +151,9 @@ output * bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
+
 # Scratchpad:
-#
+
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -175,9 +163,9 @@ output * bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
+
 # Resizing containers:
-#
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -231,4 +219,5 @@ input "type:keyboard" {
 include /etc/sway/config.d/*
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
+# This allows system specific startup programs via YADM alternate files
 include $HOME/.config/sway/startup_programs
