@@ -1,19 +1,20 @@
 # All your aliases are belong to me!
 
+# When using sudo, use alias expansion (otherwise sudo ignores your aliases)
+alias sudo='sudo '
+
 # System Commands
 alias off='sudo shutdown now'
 alias reboot='sudo reboot'
 
 # Vim
 alias v='vim'
+alias edit='vim'
 
 # Keyboard layouts (XOrg)
 alias kbgb='setxkbmap -layout gb'
 alias kbus='setxkbmap -layout us'
 alias capbk='xmodmap -e "clear lock" && xmodmap -e "keysym Caps_Lock = BackSpace"'
-
-# When using sudo, use alias expansion (otherwise sudo ignores your aliases)
-alias sudo='sudo '
 
 # ZSH
 alias zplugpull="find ${ZDOTDIR:-$HOME}/.zsh_plugins -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull"
@@ -64,6 +65,9 @@ alias tree="eza --tree"
 
 # Use a better top
 alias top="btm --expanded"
+
+# Use a better ping
+alias ping="gping"
 
 # Kubernetes
 alias k='kubectl'

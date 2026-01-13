@@ -3,22 +3,6 @@
 - hosts: localhost
   become: true
   tasks:
-    - name: Add Wavebox repository
-      ansible.builtin.yum_repository:
-        name: wavebox-stable
-        description: Wavebox Repository
-        baseurl: https://download.wavebox.app/stable/linux/rpm
-        gpgkey: https://download.wavebox.app/static/wavebox_repo.key
-        gpgcheck: 1
-    - name: Add the GitHub CLI repository
-      ansible.builtin.yum_repository:
-        name: github-cli
-        description: GitHub CLI
-        baseurl: https://cli.github.com/packages/rpm
-        gpgkey: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x23F3D4EA75716059
-        enabled: 1
-        gpgcheck: 1
-        state: absent
     - name: Install native packages
       dnf: name={{item}}
       with_items:
@@ -32,6 +16,7 @@
         - fzf
         - yadm
         - bottom
+        - gping
         - Wavebox
         - 1password
         - 1password-cli
