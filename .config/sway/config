@@ -37,7 +37,7 @@ set $menu $rofi_cmd -show combi -show-icons -modes combi -combi-modes 'window,dr
 ### Output configuration
 
 # Choose a random background wall paper of fallback to the specified colour
-output * bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/Wallpaper` fill #075466
+output "*" bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/Wallpaper` fill #075466
 
 ## Swayidle 
 
@@ -75,6 +75,9 @@ output * bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/
 
     # Launch gVim and copy what you write to the clipboard
     bindsym $mod+x exec $HOME/tools/scripts/vim-everywhere.sh
+
+    # Rotate the background image
+    bindsym $mod+Shift+b exec swaymsg output "*" bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/Wallpaper` fill #075466
 
 # Moving around:
 
