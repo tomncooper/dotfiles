@@ -27,7 +27,7 @@
             "format-paused": "| {player_icon} {status_icon} <i>{dynamic}</i> ",
             "dynamic-order": ["title", "artist"],
             "player-icons": {
-                    "default": "▶",
+                    "default": "🌐",
                     "mpv": "🎵",
                     "firefox": "🦊",
                     "strawberry": "🍓"
