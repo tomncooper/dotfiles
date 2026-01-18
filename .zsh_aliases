@@ -28,9 +28,6 @@ alias gnb='git checkout -b'
 alias gpumr='git pull upstream main --rebase'
 alias gpumar='git pull upstream master --rebase'
 
-# Github CLIgh copilot suggest
-alias ghcs='gh copilot suggest'
-
 # YADM
 alias yst='yadm status -s'
 alias yup='yadm diff --name-only --diff-filter=ACM | xargs yadm add'
@@ -41,19 +38,6 @@ export NOTES=$HOME/Documents/Notes
 alias notes='cd $NOTES'
 alias diary='mkdir -p $NOTES/diary/$(date +"%Y/%m") && $EDITOR $NOTES/diary/$(date +"%Y/%m/%Y-%m-%d.md")'
 alias yesterday='mkdir -p $NOTES/diary/$(date -d yesterday +"%Y/%m") && $EDITOR $NOTES/diary/$(date -d yesterday +"%Y/%m/%Y-%m-%d.md")'
-
-# Poetry commands
-alias per="poetry run"
-alias perp="poetry run python"
-alias pin="poetry install"
-alias padd="poetry add"
-alias pupg="poetry update"
-alias pipython="poetry run ipython --profile=tnc"
-alias pitpython="poetry run ptipython --vi"
-alias pvim="poetry run vim"
-
-# java
-alias j!=jbang
 
 # Use a better version of cat command
 alias cat="bat"
@@ -68,6 +52,9 @@ alias top="btm --expanded"
 
 # Use a better ping
 alias ping="gping"
+
+# Deal with fedora renaming the task package
+alias task="go-task"
 
 # Kubernetes
 alias k='kubectl'
