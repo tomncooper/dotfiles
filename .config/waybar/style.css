@@ -68,6 +68,11 @@ tooltip label {
     padding-right: 15px;
 }
 
+#custom-dunst {
+    padding-left: 10px;
+    padding-right: 0px;
+}
+
 @keyframes blink {
     to {
         background-color: #ffffff;

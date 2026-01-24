@@ -70,6 +70,7 @@
             "cpu",
             "memory",
             "battery",
+            "custom/dunst",
             "tray"
         ],
         // Modules configuration
@@ -123,6 +124,12 @@
             // "format-good": "", // An empty format will hide the module
             // "format-full": "",
             "format-icons": ["", "", "", "", ""]
+        },
+        "custom/dunst": {
+            "exec": "/usr/local/bin/dunst-waybar",
+            "return-type": "json",
+            "on-click": "dunstctl set-paused toggle",
+            "tooltip": true
         }
     }
 ]

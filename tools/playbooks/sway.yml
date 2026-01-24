@@ -14,3 +14,14 @@
         - rofi-wayland
         - playerctl
         - okular
+    - name: Get latest dunst-waybar release
+      community.general.github_release:
+        user: tomncooper
+        repo: dunst-waybar
+        action: latest_release
+      register: dunst_waybar_release
+    - name: Install dunst-waybar from latest RPM
+      dnf:
+        name: "{{ dunst_waybar_release.assets | selectattr('name', 'match', '.*x86_64\\.rpm$') | map(attribute='browser_download_url') | first }}"
+        state: present
+        disable_gpg_check: true
