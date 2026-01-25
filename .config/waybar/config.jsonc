@@ -126,9 +126,10 @@
             "format-icons": ["", "", "", "", ""]
         },
         "custom/dunst": {
-            "exec": "/usr/local/bin/dunst-waybar",
+            "exec": "dunst-waybar",
             "return-type": "json",
             "on-click": "dunstctl set-paused toggle",
+            "on-click-right": "dunst-waybar-history",
             "tooltip": true
         }
     }
