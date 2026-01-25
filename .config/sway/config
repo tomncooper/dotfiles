@@ -26,13 +26,7 @@ font pango:DejaVu Sans Mono, Font Awesome Free 10
 set $term ghostty
 
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# Recommends: rofi-wayland
-set $rofi_cmd rofi -terminal '$term'
-# Shows a combined list of the applications with desktop files and
-# executables from PATH.
-set $menu $rofi_cmd -show combi -show-icons -modes combi -combi-modes 'window,drun,run' -theme solarized_alternate -theme-str 'element-icon {size: 1.65ch ; } element {spacing: 20px;}'
+set $menu rofi -show combi
 
 ### Output configuration
 
