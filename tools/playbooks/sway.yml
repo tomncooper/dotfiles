@@ -15,13 +15,12 @@
         - playerctl
         - okular
     - name: Get latest dunst-waybar release
-      community.general.github_release:
-        user: tomncooper
-        repo: dunst-waybar
-        action: latest_release
+      uri:
+        url: https://api.github.com/repos/tomncooper/dunst-waybar/releases/latest
+        return_content: yes
       register: dunst_waybar_release
     - name: Install dunst-waybar from latest RPM
       dnf:
-        name: "{{ dunst_waybar_release.assets | selectattr('name', 'match', '.*x86_64\\.rpm$') | map(attribute='browser_download_url') | first }}"
+        name: "{{ dunst_waybar_release.json.assets | selectattr('name', 'match', '.*amd64\\.rpm$') | map(attribute='browser_download_url') | first }}"
         state: present
         disable_gpg_check: true
