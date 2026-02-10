@@ -38,6 +38,12 @@ tooltip label {
     background-color: transparent;
 }
 
+#custom-beattime {
+    padding-right: 6px;
+    padding-left: 6px;
+    background-color: transparent;
+}
+
 #battery, #cpu, #memory, #pulseaudio {
     padding-left: 4px;
     padding-right: 7px;

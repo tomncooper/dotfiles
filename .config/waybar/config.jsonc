@@ -4,9 +4,14 @@
         "position": "top", // Waybar position (top|bottom|left|right)
         "height": 28, // Waybar height (to be removed for auto height)
         "modules-right": [
+            "custom/beattime",
+            "custom/separator",
             "clock#ny",
+            "custom/separator",
             "clock#utc",
+            "custom/separator",
             "clock#nz",
+            "custom/separator",
             "clock"
         ],
         "modules-left": [
@@ -43,16 +48,27 @@
             "timezone": "Europe/London"
         },
         "clock#utc": {
-            "format": "UTC {:%H:%M} |",
+            "format": "UTC {:%H:%M}",
             "timezone": "Etc/UTC"
         },
         "clock#nz": {
-            "format": "NZ {:%H:%M} |",
-            "timezone": "Pacific/Auckland"
+            "format": "NZ {:%H:%M}",
+            "timezone": "Pacific/Auckland",
         },
         "clock#ny": {
-            "format": "NY {:%H:%M} |",
+            "format": "NY {:%H:%M}",
             "timezone": "America/New_York"
+        },
+        "custom/beattime": {
+            "format": {},
+            "exec": "python3 $HOME/tools/scripts/beattime.py",
+            "interval": 1,
+            "return-type": "json"
+        },
+        "custom/separator": {
+            "format": "|",
+            "interval": "once",
+            "tooltip": false
         }
     },
     {
