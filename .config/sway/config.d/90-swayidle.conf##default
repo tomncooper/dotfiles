@@ -6,5 +6,5 @@
 
 exec swayidle -w \
     timeout 300 'swaylock -f --config $HOME/.config/swaylock/config' \
-    timeout 600 'systemctl suspend' \
+    timeout 1200 'systemctl suspend' \
     after-resume 'swaylock -f --config $HOME/.config/swaylock/config'

@@ -73,6 +73,9 @@ output "*" bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photo
     # Rotate the background image
     bindsym $mod+Shift+b exec swaymsg output "*" bg `$HOME/tools/scripts/random_file_chooser $HOME/SynologyDrive/Photos/Wallpaper` fill #075466
 
+    # Show notification menu
+    bindsym $mod+n exec dunst-waybar-history
+
 # Moving around:
 
     # Move your focus around
