@@ -15,6 +15,7 @@
         - bat
         - fzf
         - zoxide
+        - difftastic
         - yadm
         - bottom
         - gping
