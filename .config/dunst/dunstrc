@@ -1,6 +1,6 @@
 [global]
-    origin = bottom-right
-    offset = (10,10)
+    origin = top-right
+    offset = (10,30)
 
     frame_color = "#586e75"
     frame_width = 2
@@ -44,6 +44,12 @@
     dmenu = /usr/bin/rofi -dmenu -p dunst:
     browser = /usr/bin/firefox -new-tab
     ignore_dbusclose = true
+    stack_duplicates = true
+
+[edge-teams-normal]
+    appname = "Microsoft Edge"
+    body = "*teams.microsoft.com*"
+    urgency = normal
 
 [urgency_low]
     msg_urgency = "low"
