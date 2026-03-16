@@ -33,6 +33,7 @@
         baseurl: https://download.wavebox.app/stable/linux/rpm
         gpgkey: https://download.wavebox.app/static/wavebox_repo.key
         gpgcheck: 1
+        enabled: false
     - name: Add the GitHub CLI repository
       ansible.builtin.yum_repository:
         name: github-cli
