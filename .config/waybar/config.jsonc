@@ -15,8 +15,8 @@
             "clock"
         ],
         "modules-left": [
-            "network",
-            "mpris"
+            "network"
+            //"mpris"
         ],
         "network": {
             // "interface": "wlp2*", // (Optional) To force the use of this interface
