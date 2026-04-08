@@ -41,6 +41,7 @@
           - org.zotero.Zotero
           - com.plexamp.Plexamp
           - com.synology.SynologyDrive
-          - ch.protonmail.protonmail-bridge
-          - me.proton.Pass 
+          - me.proton.Mail
+          - me.proton.Pass
           - com.protonvpn.www
+          - com.slack.Slack
