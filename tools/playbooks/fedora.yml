@@ -31,6 +31,7 @@
         - zeal
         - gh
         - podman
+        - pandoc
         - kubernetes-client
         - fontawesome-fonts-all
     - name: Install flatpak packages
