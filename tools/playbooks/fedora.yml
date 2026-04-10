@@ -44,5 +44,5 @@
           - com.synology.SynologyDrive
           - me.proton.Mail
           - me.proton.Pass
-          - com.protonvpn.www
           - com.slack.Slack
+          - dev.zed.Zed
