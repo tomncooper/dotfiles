@@ -1,0 +1,9 @@
+#!/bin/bash
+FILE="${1:-/tmp/weekly-status.md}"
+if [ ! -f "$FILE" ]; then
+    echo "File not found: $FILE" >&2
+    exit 1
+fi
+gvim -f "$FILE"
+pandoc -f markdown -t html "$FILE" | wl-copy --type text/html
+echo "Formatted HTML copied to clipboard."

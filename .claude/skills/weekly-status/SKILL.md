@@ -37,6 +37,7 @@ Parse each entry's bullet points:
   - Issues: `gh issue view <URL> --json title,state --jq '"\\(.title) (\\(.state))"'`
 - Skip malformed links with empty hrefs like `[text]()`.
 - If `gh` fails, fall back to WebFetch or include the raw link.
+- Store the resolved title, state, and type (PR/issue) for use in Step 6 output formatting.
 
 **Wikilinks** — match pattern `[[note-name]]`:
 - Identify linked notes that are project/topic references (skip date references like `[[2026-04-01]]`).
@@ -50,7 +51,11 @@ Parse each entry's bullet points:
 - Structure as a nested bullet list: top-level bullets are subject areas/themes, nested bullets are distinct tasks achieved within that subject area.
 - Group by theme/project, not by day.
 - Deduplicate: if the same activity spans multiple days, merge into one nested bullet describing the arc.
-- Weave link context inline with valid Markdown hyperlinks: "Opened quickstart docs PR ([#10](https://github.com/owner/repo/pull/10), merged)" rather than listing raw URLs or plain text references. Every PR/issue mention must be a clickable `[text](url)` link.
+- **Link formatting rules** — use the resolved title and state as plain text in the bullet, with a short generic link label (`[PR](url)`, `[issue](url)`, `[doc](url)`) placed naturally:
+  - Inline style (preferred): "Opened quickstart docs [PR](url), now merged"
+  - Parenthetical style (when inline is awkward): "Reviewed the replication proposal ([issue](url))"
+  - **Never** use the PR/issue title or number as the link text. The link text must be one of: `PR`, `issue`, `doc`.
+  - **Never** put the link inside parentheses together with state — wrong: `([PR](url), merged)`. Right: "merged the quickstart docs [PR](url)" or "([PR](url)) which has been merged".
 - For wikilinked notes, include a parenthetical summary on first reference.
 - Use past tense. Keep nested bullets concise (1-2 sentences each). Aim for 8-15 total task bullets across all subject areas (scale up slightly for larger ranges).
 
@@ -59,15 +64,21 @@ Parse each entry's bullet points:
 - List each task as a plain bullet (`-`), stripped of all Obsidian Tasks emoji (`⏫`, `🔼`, `📅`, `✅`, etc.) and date annotations. Output only the task description text.
 - If no upcoming tasks were found, omit this section entirely.
 
-### Step 7: Copy to clipboard as rich text
+### Step 7: Edit and copy to clipboard as rich text
 
 After displaying the composed Markdown in the conversation:
 
 1. Write the exact Markdown output from Step 6 to `/tmp/weekly-status.md` using the Write tool.
-2. Run via Bash: `pandoc -f markdown -t html /tmp/weekly-status.md | wl-copy --type text/html && rm /tmp/weekly-status.md`
-3. Tell the user: "Formatted status copied to clipboard — paste directly into Gmail."
+2. Tell the user to run the editor: suggest typing `! edit-and-copy-md` in the Claude Code prompt.
+   - This opens gvim on the file. After the user saves and quits, the script converts to HTML and copies to clipboard.
+   - Tell the user: "Edit in gvim, then :wq. HTML will be copied to clipboard. Use `:CopyHTML` inside gvim to re-copy without closing."
+3. Do not delete `/tmp/weekly-status.md` — leave it for potential re-editing.
 
-If the Bash command fails (e.g., `wl-copy` cannot connect to a Wayland display), inform the user that clipboard copy failed and they can copy the Markdown from the conversation instead. Do not retry.
+If `edit-and-copy-md` is not found, fall back to the direct pandoc pipeline:
+`pandoc -f markdown -t html /tmp/weekly-status.md | wl-copy --type text/html`
+and inform the user they can install the script for editing support.
+
+If the pipeline fails (e.g., `wl-copy` cannot connect to a Wayland display), inform the user that clipboard copy failed and they can copy the Markdown from the conversation instead. Do not retry.
 
 ## Output template
 
@@ -75,9 +86,10 @@ If the Bash command fails (e.g., `wl-copy` cannot connect to a Wayland display),
 ## Last Week
 
 - **Theme/Project Name**
-  - Completed contribution or activity
-  - Another task with PR context (title, merged/open)
+  - Opened the quickstart docs [PR](url), now merged
+  - Investigated flaky replication test ([issue](url)), root cause was a race condition
 - **Another Theme**
+  - Reviewed the upgrade guide [doc](url) and updated compatibility matrix
   - Activity with [[linked note]] context (brief summary)
 
 ## Next Week
@@ -95,3 +107,7 @@ If the Bash command fails (e.g., `wl-copy` cannot connect to a Wayland display),
 - **gh CLI unavailable**: Fall back to WebFetch or include raw link without metadata.
 - **No upcoming tasks**: Omit the "Next week" section entirely.
 - **Clipboard unavailable**: If `wl-copy` fails (no Wayland session, SSH without display forwarding), inform the user and skip clipboard copy. The Markdown output in the conversation is still usable.
+- **`edit-and-copy-md` not found**: Fall back to direct pandoc + wl-copy pipeline (no editor). Inform user the script is needed for editing.
+- **gvim unavailable**: Same fallback — direct copy without editor.
+- **User closes gvim without saving**: Pandoc converts the original unmodified file — correct behavior, original report gets copied.
+- **Re-editing after close**: File stays at `/tmp/weekly-status.md`. User can reopen with `gvim /tmp/weekly-status.md` and use `:CopyHTML`.
