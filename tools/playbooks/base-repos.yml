@@ -51,10 +51,14 @@
       community.general.copr:
         state: enabled
         name: atim/gping
+    - name: Remove old Ghostty terminal repo
+      community.general.copr:
+        state: absent
+        name: pgdev/ghostty
     - name: Add Ghostty terminal repo
       community.general.copr:
         state: enabled
-        name: pgdev/ghostty
+        name: scottames/ghostty
     - name: Add eza repo
       community.general.copr:
         state: enabled
