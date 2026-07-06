@@ -10,6 +10,8 @@
             "custom/separator",
             "clock#utc",
             "custom/separator",
+            "clock#ind",
+            "custom/separator",
             "clock#nz",
             "custom/separator",
             "clock"
@@ -58,6 +60,10 @@
         "clock#ny": {
             "format": "NY {:%H:%M}",
             "timezone": "America/New_York"
+        },
+        "clock#ind": {
+            "format": "IND {:%H:%M}",
+            "timezone": "Asia/Kolkata"
         },
         "custom/beattime": {
             "format": {},
