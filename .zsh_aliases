@@ -4,8 +4,8 @@
 alias sudo='sudo '
 
 # System Commands
-alias off='sudo shutdown now'
-alias reboot='sudo reboot'
+alias off='systemctl poweroff'
+alias reboot='systemctl reboot'
 
 # Vim
 alias v='vim'
