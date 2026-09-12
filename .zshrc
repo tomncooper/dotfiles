@@ -109,6 +109,9 @@ eval "$(starship init zsh)"
 # Load zoxide directory search and tooling
 eval "$(zoxide init zsh)"
 
+# opencode
+export PATH=/home/tcooper/.opencode/bin:$PATH
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
