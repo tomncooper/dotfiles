@@ -34,6 +34,7 @@ Plug 'fatih/vim-go'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax' 
 Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf.vim'
 
 "End the vim plug config
 call plug#end() 
