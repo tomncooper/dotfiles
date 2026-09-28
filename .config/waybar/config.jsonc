@@ -17,8 +17,8 @@
             "clock"
         ],
         "modules-left": [
-            "network"
-            //"mpris"
+            "network",
+            "custom/mpris"
         ],
         "network": {
             // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -29,21 +29,17 @@
             "format-disconnected": "Disconnected ⚠",
             "format-alt": "{ifname}: {ipaddr}/{cidr}"
         },
-        "mpris": {
-            "format": "| {player_icon} {status_icon} {dynamic} ",
-            "format-paused": "| {player_icon} {status_icon} <i>{dynamic}</i> ",
-            "dynamic-order": ["title", "artist"],
-            "player-icons": {
-                    "default": "🌐",
-                    "mpv": "🎵",
-                    "firefox": "🦊",
-                    "strawberry": "🍓"
-            },
-            "status-icons": {
-                    "playing": "▶",
-                    "paused": "⏸",
-                    "stopped": "⏹" 
-            }
+        "custom/mpris": {
+            "exec": "/home/tcooper/tools/scripts/mpris-waybar/mpris-waybar.py",
+            "return-type": "json",
+            "restart-interval": 5,
+            "max-length": 80,
+            "exec-on-event": false,
+            "on-click": "playerctl -p playerctld play-pause",
+            "on-click-middle": "playerctl -p playerctld previous",
+            "on-click-right": "playerctl -p playerctld next",
+            "on-scroll-up": "playerctld shift",
+            "on-scroll-down": "playerctld unshift"
         },
         "clock": {
             "format": "{:%A %e %B %Y | %H:%M} ",
