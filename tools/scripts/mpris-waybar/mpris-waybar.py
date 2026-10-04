@@ -21,6 +21,7 @@ Usage:
 import argparse
 import json
 import os
+import re
 import signal
 import subprocess
 import sys
@@ -39,6 +40,14 @@ FIELD_NAMES = ("status", "player", "title", "artist", "album", "url",
 # Prefix match handles Firefox instance names like `firefox.instance_1_56`.
 PLAYER_ICONS = [("firefox", "🦊"), ("strawberry", "🍓"), ("mpv", "🎵")]
 DEFAULT_PLAYER_ICON = "🌐"
+
+# Nice display names for the tooltip; unknown apps get title-cased.
+APP_LABELS = {"firefox": "Firefox", "librewolf": "LibreWolf",
+              "chromium": "Chromium", "chrome": "Chrome",
+              "brave": "Brave", "spotify": "Spotify", "vlc": "VLC",
+              "mpv": "mpv", "strawberry": "Strawberry"}
+
+MPRIS_PREFIX = "org.mpris.MediaPlayer2."
 
 STATUS_ICONS = {"playing": "▶", "paused": "⏸", "stopped": "⏹"}
 
@@ -83,6 +92,57 @@ def player_icon(name):
     return DEFAULT_PLAYER_ICON
 
 
+def playerctld_active_player():
+    """Bus name of the real player behind playerctld, e.g.
+    `org.mpris.MediaPlayer2.firefox.instance_1_64`; "" if unavailable.
+
+    The proxy only ever identifies itself as `playerctld` in playerctl's
+    {{playerName}}/{{playerInstance}} tokens, but it exposes the ordered
+    player list as a D-Bus property (index 0 = active player). Read fresh
+    on every update so `playerctld shift` is reflected immediately.
+    """
+    for cmd in (
+        ["busctl", "--user", "get-property",
+         "org.mpris.MediaPlayer2.playerctld", "/org/mpris/MediaPlayer2",
+         "com.github.altdesktop.playerctld", "PlayerNames"],
+        ["gdbus", "call", "--session",
+         "--dest", "org.mpris.MediaPlayer2.playerctld",
+         "--object-path", "/org/mpris/MediaPlayer2",
+         "--method", "org.freedesktop.DBus.Properties.Get",
+         "com.github.altdesktop.playerctld", "PlayerNames"],
+    ):
+        try:
+            result = subprocess.run(cmd, capture_output=True, text=True,
+                                     timeout=2)
+        except (subprocess.TimeoutExpired, FileNotFoundError):
+            continue
+        # First quoted string in either tool's output is PlayerNames[0].
+        match = re.search(r'"([^"]+)"', result.stdout or "")
+        if match:
+            return match.group(1)
+    return ""
+
+
+def app_name(fields):
+    """Resolve the application actually playing: (css/icon key, label).
+
+    Plain `playerctl` (fallback stream) reports the real player in
+    {{playerName}}; through playerctld that token is always `playerctld`,
+    so ask the daemon which player it is currently proxying.
+    """
+    bus_name = (fields.get("player") or "").strip()
+    if not bus_name or bus_name.lower() == "playerctld":
+        bus_name = playerctld_active_player() or bus_name
+    if bus_name.startswith(MPRIS_PREFIX):
+        bus_name = bus_name[len(MPRIS_PREFIX):]
+    key = bus_name.split(".", 1)[0].strip().lower()  # drop .instance_N
+    if not key:
+        return "", ""
+    if key == "playerctld":  # proxy running but nothing visible behind it
+        return key, key
+    return key, APP_LABELS.get(key, key.capitalize())
+
+
 def render(fields, track):
     """Return (text, tooltip, classes). Empty text hides the module."""
     status = (fields.get("status", "") or "").strip()
@@ -92,7 +152,8 @@ def render(fields, track):
         return "", "", []
 
     track = track or Track()
-    p_icon = player_icon(fields.get("player", ""))
+    app_key, app_label = app_name(fields)
+    p_icon = player_icon(app_key)
     s_icon = STATUS_ICONS.get(status_key, STATUS_ICONS["playing"])
 
     if track.title:
@@ -104,24 +165,31 @@ def render(fields, track):
 
     text = f"{p_icon} {s_icon} {body}"
 
-    lines = []
-    if track.title:
-        lines.append(f"Title: {track.title}")
-    if track.artist:
-        lines.append(f"Artist: {track.artist}")
-    if track.album:
-        lines.append(f"Album: {track.album}")
-    lines.append(f"Player: {fields.get('player', '') or '?'} ({status or '?'})")
-    tooltip = "\n".join(lines)
+    # Source shown in the tooltip: site label ("Tidal") plus the app it
+    # plays through ("Firefox"), or just the app for local players.
+    source = app_label or fields.get("player", "") or "?"
+    if track.label and track.label.lower() != source.lower():
+        source = f"{track.label} ({source})"
+
+    # Keys are padded so every value starts in the same column. The width
+    # is computed from all keys (even ones whose value is missing) so the
+    # column stays stable no matter which lines are shown.
+    entries = [("Title", track.title),
+               ("Artist", track.artist),
+               ("Album", track.album),
+               ("Player", f"{source} ({status or '?'})")]
+    key_width = max(len(key) for key, _ in entries)
+    tooltip = "\n".join(
+        f"{key}:{' ' * (key_width - len(key) + 1)}{value}"
+        for key, value in entries if value)
 
     classes = []
     if status_key == "paused":
         classes.append("paused")
     if track.site:
         classes.append(track.site)
-    player = (fields.get("player", "") or "").strip()
-    if player:
-        classes.append(f"player-{player}")
+    if app_key:
+        classes.append(f"player-{app_key}")
 
     return text, tooltip, classes
 

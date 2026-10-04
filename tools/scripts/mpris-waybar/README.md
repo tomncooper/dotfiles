@@ -14,12 +14,32 @@ that embed play/pause icons (`▶︎ In Moments | Slowe`) and pipe-separated
 |---------------------|-------------------------------------------------|
 | Bandcamp album page | `🦊 ▶ Slowe: In Moments`                        |
 | Tidal               | `🦊 ▶ Incubus: Wish You Were Here`              |
+| YouTube             | `🦊 ▶ Rick Astley: Never Gonna Give You Up`      |
 | Strawberry          | `🍓 ▶ The Tiberian Sons: Dual Wielder [AC7]`    |
 
 The album is shown in place of the track name when no track name is
 available (Bandcamp album-page view) and is otherwise omitted from bar
 text (it appears in the tooltip). No progress/position display — the
 module is fully event-driven.
+
+The tooltip's `Player:` line shows the **source** rather than the proxy
+name: `Player: Tidal (Firefox) (Playing)` for sites handled by a plugin,
+and `Player: Strawberry (Playing)` for local players. `playerctld` never
+reveals the real player through playerctl's `{{playerName}}` token (it
+always says `playerctld`), so the module reads the daemon's
+`com.github.altdesktop.playerctld.PlayerNames` D-Bus property (index 0 =
+active player) on every update — which also makes `playerctld shift`
+(scroll up/down) show the newly active app immediately.
+
+Tooltip keys are padded so every value starts in the same column
+(character-count based). For pixel-perfect alignment give the tooltip a
+monospace font in `~/.config/waybar/style.css`:
+
+```css
+#custom-mpris tooltip {
+    font-family: monospace;
+}
+```
 
 ## How it works
 
@@ -35,6 +55,9 @@ Each metadata line is `\x1f`-separated into fields, passed through the
 ```json
 {"text": "🦊 ▶ Slowe: In Moments", "tooltip": "...", "class": ["bandcamp", "player-firefox"]}
 ```
+
+The real player app (resolved through `playerctld`) drives the icon and
+the `player-<app>` CSS class (e.g. `player-firefox`, `player-strawberry`).
 
 Empty `text` hides the module (no active player / Stopped).
 
@@ -68,10 +91,14 @@ URL_PATTERNS = [re.compile(r"example\.com", re.IGNORECASE)]
 def normalize(fields):
     # fields: status, player, title, artist, album, url, art_url
     return Track(artist=fields["artist"], album=fields["album"],
-                 title=fields["title"], site="example")
+                 title=fields["title"], site="example",
+                 label="Example")  # shown in the tooltip's Player: line
 ```
 
-Return `None` from `normalize()` to decline and let the next handler try.
+`label` is the human-readable source name shown in the tooltip as
+`Player: Example (Firefox)`; leave it out (`None`) to show just the
+application name. Return `None` from `normalize()` to decline and let the
+next handler try.
 
 ## Testing
 
@@ -81,6 +108,10 @@ Offline (no player needed) — feed `\x1f`-separated metadata blobs:
 printf 'Playing\x1ffirefox\x1f▶︎ In Moments | Slowe\x1f\x1f\x1fhttps://x.bandcamp.com/album/in-moments\x1f\n' \
   | ./mpris-waybar.py --debug
 ```
+
+Blobs whose player field is `playerctld` resolve the app name from the
+live D-Bus daemon (exactly like follow mode); use a real player name such
+as `firefox` in the blob to test fully offline.
 
 One-shot current state:
 

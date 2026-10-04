@@ -24,6 +24,9 @@ class Track:
     album: str = ""
     title: str = ""
     site: Optional[str] = None  # handler name, e.g. "bandcamp"; None = unknown
+    # Human-readable source name for the tooltip, e.g. "Tidal" or
+    # "Bandcamp". None = fall back to the playing application name.
+    label: Optional[str] = None
 
 
 def load_handlers():

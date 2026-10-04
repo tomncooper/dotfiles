@@ -18,4 +18,5 @@ def normalize(fields):
     title = fields.get("title", "") or ""
     if not (artist or album or title):
         return None
-    return Track(artist=artist, album=album, title=title, site="tidal")
+    return Track(artist=artist, album=album, title=title, site="tidal",
+                 label="Tidal")

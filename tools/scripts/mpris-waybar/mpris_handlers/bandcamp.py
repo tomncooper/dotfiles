@@ -53,4 +53,5 @@ def normalize(fields):
     if not (artist or album or title):
         return None
 
-    return Track(artist=artist, album=album, title=title, site="bandcamp")
+    return Track(artist=artist, album=album, title=title, site="bandcamp",
+                 label="Bandcamp")
